@@ -5,15 +5,19 @@
   
 
   
-  <title>薛涵予微笑着走向生活😊</title>
+  <title>JS基础——语法 | 薛涵予微笑着走向生活😊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="薛涵予微笑着走向生活😊">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="语法概述下面是值的类型五种基本类型 字符串  ‘hello’  “hello” 数字  1.234  1234 布尔值  true  false null undefined  复杂数据类型-Object下面是几个基础语法的例子123456789101112var x     //  声明一个变量x x = 3 + z   //  给变量x赋值foo(a,b)   //  函数foo调用并传入形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS基础——语法">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/js基础——语法/index.html">
 <meta property="og:site_name" content="薛涵予微笑着走向生活😊">
+<meta property="og:description" content="语法概述下面是值的类型五种基本类型 字符串  ‘hello’  “hello” 数字  1.234  1234 布尔值  true  false null undefined  复杂数据类型-Object下面是几个基础语法的例子123456789101112var x     //  声明一个变量x x = 3 + z   //  给变量x赋值foo(a,b)   //  函数foo调用并传入形">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-22T14:54:06.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="薛涵予微笑着走向生活😊">
+<meta name="twitter:title" content="JS基础——语法">
+<meta name="twitter:description" content="语法概述下面是值的类型五种基本类型 字符串  ‘hello’  “hello” 数字  1.234  1234 布尔值  true  false null undefined  复杂数据类型-Object下面是几个基础语法的例子123456789101112var x     //  声明一个变量x x = 3 + z   //  给变量x赋值foo(a,b)   //  函数foo调用并传入形">
   
     <link rel="alternate" href="/atom.xml" title="薛涵予微笑着走向生活😊" type="application/atom+xml">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-js基础——语法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js基础——语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/22/js基础——语法/" class="article-date">
   <time datetime="2018-07-22T13:57:57.372Z" itemprop="datePublished">2018-07-22</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/22/js基础——语法/">JS基础——语法</a>
+    <h1 class="article-title" itemprop="name">
+      JS基础——语法
     </h1>
   
 
@@ -118,58 +120,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-copyObj" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/14/copyObj/" class="article-date">
-  <time datetime="2018-07-14T14:14:56.456Z" itemprop="datePublished">2018-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/copyObj/">浅复制（浅拷贝）和深复制（深拷贝）</a>
-    </h1>
+    <a href="/2018/07/14/copyObj/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">浅复制（浅拷贝）和深复制（深拷贝）</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>JS中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>堆内存用于存放由new创建的对象，栈内存存放一些基本类型的变量和对象的引用变量。<br>浅拷贝：仅仅复制对象的引用，而不是对象本身；<br>深拷贝：把复制的对象所引用的全部对象都复制一遍</p>
-<h3 id="对于简单变量，内存小，直接复制而不会发生引用"><a href="#对于简单变量，内存小，直接复制而不会发生引用" class="headerlink" title="对于简单变量，内存小，直接复制而不会发生引用"></a>对于简单变量，内存小，直接复制而不会发生引用</h3><p>eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 123</span><br><span class="line">Var b = a</span><br><span class="line">a = 123456</span><br><span class="line">Console.log(a).  // 123456</span><br><span class="line">Console.log(b).  // 123</span><br></pre></td></tr></table></figure></p>
-<h3 id="引用只发生在对象身上，如数组、对象"><a href="#引用只发生在对象身上，如数组、对象" class="headerlink" title="引用只发生在对象身上，如数组、对象"></a>引用只发生在对象身上，如数组、对象</h3><p>（一）数组<br>浅拷贝eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [1,2,3]</span><br><span class="line">Var arr2 = arr1 </span><br><span class="line">arr1.push(4)</span><br><span class="line">Console.log(arr1).  // [1,2,3,4]</span><br><span class="line">Console.log(arr2) //[1,2,3,4]</span><br><span class="line">arr2.push(6) </span><br><span class="line">Console.log(arr1).  // [1,2,3,4,6]</span><br><span class="line">Console.log(arr2) //[1,2,3,4,6]</span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的方法:<br>eg1:    Array.from<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Var arr3 = [1,3,5,7]</span><br><span class="line">var arr4 = Array.from(arr3)</span><br><span class="line">arr3.push(9)</span><br><span class="line">Console.log(arr3).  // [1,3,5,7,9]</span><br><span class="line">Console.log(arr4) //[1,3,5,7]</span><br></pre></td></tr></table></figure></p>
-<p>eg2: …运算符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr5 = [2,4,6,8]</span><br><span class="line">Var arr6 = […arr5]</span><br><span class="line">arr5.push(10)</span><br><span class="line">Console.log(arr5).    // [2,4,6,8,10]</span><br><span class="line">Console.log(arr6).     // [2,4,6,8]</span><br></pre></td></tr></table></figure></p>
-<p>eg3 : Array.map()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr7 = [2,3,5,6]</span><br><span class="line">Var arr8 = arr7.map(item =&gt; &#123; return item &#125;)</span><br><span class="line">arr7.push(8)</span><br><span class="line">Console.log(arr7).  // [2,3,5,6,8]</span><br><span class="line">Console.log(arr8).  // [2,3,5,6]</span><br></pre></td></tr></table></figure></p>
-<p>eg4: 通过循环来控制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr9 = [1,2,3,4,5]</span><br><span class="line">var arr10 = []</span><br><span class="line">for(var I=0;i&lt;arr9.length;i++)&#123; arr10[i] = arr9[i] &#125;</span><br><span class="line">arr9.push(6)</span><br><span class="line">Console.log(arr9).     // [1,2,3,4,5,6]</span><br><span class="line">Console.log(arr10).    //. [1,2,3,4]</span><br></pre></td></tr></table></figure></p>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h3 id="浅拷贝的实现："><a href="#浅拷贝的实现：" class="headerlink" title="浅拷贝的实现："></a>浅拷贝的实现：</h3><p>eg1: 直接赋值<br>eg2: Object.assign({}, target)<br>eg3: for in循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function simpleClone(initalObj) &#123;</span><br><span class="line">    var obj = &#123;&#125;;</span><br><span class="line">    for ( var i in initalObj) &#123;</span><br><span class="line">        obj[i] = initalObj[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的实现：<br>eg1:JSON.parse<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(initalObj) &#123;</span><br><span class="line">    var obj = &#123;&#125;;</span><br><span class="line">    try &#123;</span><br><span class="line">        obj = JSON.parse(JSON.stringify(initalObj));</span><br><span class="line">    &#125;</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg2: 递归思想<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj1,obj2)&#123;</span><br><span class="line">  var obj2=obj2||&#123;&#125;; //最初的时候给它一个初始值=它自己或者是一个json</span><br><span class="line">  for(var name in obj1)&#123;</span><br><span class="line">      if(typeof obj1[name] === &quot;object&quot;)&#123; //先判断一下obj[name]是不是一个对象</span><br><span class="line">          obj2[name]= (obj1[name].constructor===Array)?[]:&#123;&#125;; //我们让要复制的对象的name项=数组或者是json</span><br><span class="line">          deepClone(obj1[name],obj2[name]); //然后来无限调用函数自己 递归思想</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">          obj2[name]=obj1[name];  //如果不是对象，直接等于即可，不会发生引用。</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj2; //然后在把复制好的对象给return出去</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg3: Object.create()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(initalObj, finalObj) &#123;</span><br><span class="line">    var obj = finalObj || &#123;&#125;;</span><br><span class="line">    for (var i in initalObj) &#123;</span><br><span class="line">        var prop = initalObj[i];</span><br><span class="line">  </span><br><span class="line">        // 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况</span><br><span class="line">        if(prop === obj) &#123;</span><br><span class="line">            continue;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">        if (typeof prop === &apos;object&apos;) &#123;</span><br><span class="line">            obj[i] = (prop.constructor === Array) ? [] : Object.create(prop);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            obj[i] = prop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjjwyrg190000e242hohneoxa" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-
 
 </section>
         
