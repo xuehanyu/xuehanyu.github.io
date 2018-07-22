@@ -99,7 +99,7 @@
 <p><strong> 注：凡是js期望语句的地方都可以写表达式，这样的语句叫做表达式语句。反之则不然，不能在需要表达式的地方适用语句，如判断语句不能成为函数的参数 </strong></p>
 <h3 id="条件语句与条件表达式（某些情况下可以互通）"><a href="#条件语句与条件表达式（某些情况下可以互通）" class="headerlink" title="条件语句与条件表达式（某些情况下可以互通）"></a>条件语句与条件表达式（某些情况下可以互通）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//  使用条件语句</span><br><span class="line">  if(score&gt;60)&#123;</span><br><span class="line">    str = &apos;及格&apos;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    str = &apos;不及格&apos;</span><br><span class="line">  &#125;</span><br><span class="line">//  如用条件表达式如下 （条件运算符或三元表达式）</span><br><span class="line">  str = score &gt; 60 ? &apos;及格&apos; : &apos;不及格&apos;</span><br></pre></td></tr></table></figure>
 <h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>ES5 提供了严格模式，在严格模式中，JavaScript代码会更加简洁，会有更少不安全的特性，更多的警告和更加合理的代码。普通模式（非严格模式），有时也被成为“宽松模式”。</p>
-<h2 id="启用严格模式"><a href="#启用严格模式" class="headerlink" title="启用严格模式"></a>启用严格模式</h2><p>可以在JavaScript文件或者<script>标签中的第一行加入以下代码来启动严格模式<br><code>&#39;use strict&#39;</code><br>或者可以在函数作用域中启用严格模式<br><code>function foo(){
+<h2 id="启用严格模式"><a href="#启用严格模式" class="headerlink" title="启用严格模式"></a>启用严格模式</h2><p>可以在JavaScript文件或者script标签中的第一行加入以下代码来启动严格模式<br><code>&#39;use strict&#39;</code><br>或者可以在函数作用域中启用严格模式<br><code>function foo(){
     &#39;use strict&#39;
     ...
   }</code></p>
@@ -108,11 +108,11 @@
 <h3 id="无方法的函数中-this的值为undefined"><a href="#无方法的函数中-this的值为undefined" class="headerlink" title="无方法的函数中 this的值为undefined"></a>无方法的函数中 this的值为undefined</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 在宽松模式中</span><br><span class="line">  function foo()&#123;</span><br><span class="line">    console.log(this===window)   // true</span><br><span class="line">  &#125;</span><br><span class="line">//  在严格模式中</span><br><span class="line">function foo()&#123;</span><br><span class="line">  &apos;use strict&apos;</span><br><span class="line">  console.log(this===undefined)   // true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="在严格模式中，设置或删除不可改变的属性会抛出异常"><a href="#在严格模式中，设置或删除不可改变的属性会抛出异常" class="headerlink" title="在严格模式中，设置或删除不可改变的属性会抛出异常"></a>在严格模式中，设置或删除不可改变的属性会抛出异常</h3><p>严格模式中，对属性的非法操作会抛出异常。如，对只读属性的设定操作会抛出一场，同样不可以删除不可配置的属性，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var str = &quot;hello&quot;</span><br><span class="line">function foo() &#123;</span><br><span class="line">  str.length = 8  //  静默失败</span><br><span class="line">  console.log(str.length)  //  5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line">  &apos;use strict&apos;</span><br><span class="line">  str.length = 8  //  抛出异常 TypeError: Cannot assign to read only property &apos;length&apos; of string &apos;hello&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="在严格模式中，不合格标识符不能删除"><a href="#在严格模式中，不合格标识符不能删除" class="headerlink" title="在严格模式中，不合格标识符不能删除"></a>在严格模式中，不合格标识符不能删除</h3><p>在宽松模式中，可以用下面的方式删除全局变量foo<br>delete foo<br>在严格模式中，想要删除不合格标识符时将会抛出异常，但是可以通过以下方式进行删除全局变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete window.foo //  浏览器</span><br><span class="line">delete global.foo  //  Node.js</span><br><span class="line">delete this.foo  //  全局作用域</span><br></pre></td></tr></table></figure></p>
-</script></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjjwyrg1e0001e242db2kx3h6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjjwyu6br0000f942ipcta8k5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -159,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjjwyrg190000e242hohneoxa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjjwyu6bx0001f942uugh4hca" class="article-share-link">Share</a>
       
       
     </footer>
