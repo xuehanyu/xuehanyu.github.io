@@ -46,7 +46,7 @@
         
           <a class="main-nav-link" href="/archives">Archives</a>
         
-          <a class="main-nav-link" href="/about">about</a>
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -63,6 +63,49 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-js基础——原始值的包装对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/29/js基础——原始值的包装对象/" class="article-date">
+  <time datetime="2018-07-29T14:52:32.909Z" itemprop="datePublished">2018-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/js基础——原始值的包装对象/">JS基础—-原始值的包装对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>布尔值、数字和字符串这三种原始值都有对应的构造函数：Boolean、Number、string。</p>
+<h3 id="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"><a href="#作为构造函数，他们创建的对象和它们包装的原始值有很大的不同" class="headerlink" title="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"></a>作为构造函数，他们创建的对象和它们包装的原始值有很大的不同</h3><p>eg: 类型不同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typeof new String(&apos;abc&apos;)   //  object  </span><br><span class="line">new String(&apos;abc&apos;) === &apos;abc&apos;   // false</span><br></pre></td></tr></table></figure></p>
+<h3 id="作为函数，它们会将值转换为对应的原始值"><a href="#作为函数，它们会将值转换为对应的原始值" class="headerlink" title="作为函数，它们会将值转换为对应的原始值"></a>作为函数，它们会将值转换为对应的原始值</h3><p>eg<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number(1)      //  1</span><br></pre></td></tr></table></figure></p>
+<h2 id="原始值的包装与去包装"><a href="#原始值的包装与去包装" class="headerlink" title="原始值的包装与去包装"></a>原始值的包装与去包装</h2><p>在日常的开发实践中，我们经常对原始值 如字符串 、数值进行“.”的操作，调用其方法或属性，在调用的背后就发生了包装与去包装的过程。</p>
+<h3 id="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："><a href="#通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：" class="headerlink" title="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："></a>通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Boolean(true)</span><br><span class="line">new String(&apos;123&apos;)</span><br><span class="line">new Number(134)</span><br></pre></td></tr></table></figure>
+<h3 id="通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"><a href="#通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。" class="headerlink" title="通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"></a>通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Boolean(true).valueOf()        //true</span><br><span class="line">new String(&apos;123&apos;).valueOf()       // &apos;123&apos;</span><br><span class="line">new Number(134).valueOf()       // 134</span><br></pre></td></tr></table></figure>
+<p>注意：将包装对象转换为原始值时只能正确地提取数字和字符串，而布尔值不能。<br><code>Boolean(new Boolean(true))</code>    //  true</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/29/js基础——原始值的包装对象/" data-id="cjk6zok8f0002th42yanqco2n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-js基础——语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -112,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjk6zfbt60001q642hrkprwd8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjk6znrw70001th426xcoksu0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -159,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjk6zfbt20000q642klfgafe5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjk6znrvz0000th427umzdydn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,6 +243,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/29/js基础——原始值的包装对象/">JS基础—-原始值的包装对象</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/22/js基础——语法/">JS基础——语法</a>
           </li>
         
@@ -231,7 +278,7 @@
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/about" class="mobile-nav-link">about</a>
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     
