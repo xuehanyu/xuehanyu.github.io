@@ -18,8 +18,10 @@
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/work.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/list.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/tree.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/refs.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/basedata.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-08-12T13:01:07.552Z">
+<meta property="og:updated_time" content="2018-08-12T14:04:36.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
 <meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。    近乎所有操作都是本地执行  在Git中的绝大多数操作都只">
@@ -170,6 +172,31 @@
 <ul>
 <li>执行 git log 查看git提交历史<br>没有借助任何上层命令，仅凭几个底层操作便完成了一个 Git 提交历史的创建。 这就是每次我们运行 git add 和 git commit 命令时， Git 所做的实质工作——将被改写的文件保存为数据对象，更新暂存区，记录树对象，最后创建一个指明了顶层树对象和父提交的提交对象。 这三种主要的 Git 对象——数据对象、树对象、提交对象——最初均以单独文件的形式保存在 .git/objects 目录下。 </li>
 </ul>
+<h3 id="Git引用"><a href="#Git引用" class="headerlink" title="Git引用"></a>Git引用</h3><p>我们可以借助类似于 git log 1a410e 这样的命令来浏览完整的提交历史，但为了能遍历那段历史从而找到所有相关对象，你仍须记住 1a410e 是最后一个提交。 我们需要一个文件来保存 SHA-1 值，并给文件起一个简单的名字，然后用这个名字指针来替代原始的 SHA-1 值。在 Git 里，这样的文件被称为“引用（references，或缩写为 refs）”；可以在 .git/refs 目录下找到这类含有 SHA-1 值的文件。 它包含了一个简单的目录结构：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/refs.png" alt="git"></p>
+<ul>
+<li><p>若要创建一个新引用来帮助记忆最新提交所在的位置，从技术上讲我们只需简单地做如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;1a410efbd13591db07496601ebc7a059dd55cfe9&quot; &gt; .git/refs/heads/master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们不提倡直接编辑引用文件。 如果想更新某个引用，Git 提供了一个更加安全的命令 update-ref 来完成此事：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git update-ref refs/heads/master 1a410efbd13591db07496601ebc7a059dd55cfe9</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这基本就是 Git 分支的本质：一个指向某一系列提交之首的指针或引用。<br>Git数据库从概念上看起来像：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/basedata.png" alt="git"><br>当运行类似于 git branch (branchname) 这样的命令时，Git 实际上会运行 update-ref 命令，取得当前所在分支最新提交对应的 SHA-1 值，并将其加入你想要创建的任何新引用中。</p>
+<p><strong>问题 ：现在的问题是，当你执行 git branch (branchname) 时，Git 如何知道最新提交的 SHA-1 值呢</strong></p>
+<h4 id="HEAD引用"><a href="#HEAD引用" class="headerlink" title="HEAD引用"></a>HEAD引用</h4><ul>
+<li><p>HEAD 文件是一个符号引用（symbolic reference），指向目前所在的分支。 所谓符号引用，意味着它并不像普通引用那样包含一个 SHA-1 值——它是一个指向其他引用的指针。如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果执行 git checkout test，Git 会像这样更新 HEAD 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当执行git commit时，该命令会创建一个提交对象，并用HEAD文件中那个引用所指向的SHA-1值设置其父提交字段<br>  同样存在一个更安全的命令来完成此事：symbolic-ref。 可以借助此命令来查看 HEAD 引用对应的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD</span><br><span class="line">refs/heads/master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同样可以设置 HEAD 引用的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/test</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="规范git的使用"><a href="#规范git的使用" class="headerlink" title="规范git的使用"></a>规范git的使用</h3><ul>
 <li>频繁地提交改动<br>经常性地提交改动可以确保不会出现特别庞大的提交，同时也可以比较精准地对应到所需要的改动上。此外，通过频繁地提交也可以比较快速地和其他开发人员来共享你的改动。同样也会避免在整合代码时出现过多的合并冲突。相反的，非常庞大的提交会加大整合代码时出现冲突的风险，解决这些冲突也会非常复杂。</li>
 <li>提交对应改动<br>一次提交要包括一个相关改动。例如，对于两个错误的修复应该进行两次不同的提交。精简的提交可以让其他的开发团队人员更简单地明白其改动的用义。</li>
@@ -184,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjkqvwh2t0005kl421mk18r76" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjkqwdh6y0005na42s3c7i6lw" class="article-share-link">Share</a>
       
       
     </footer>
