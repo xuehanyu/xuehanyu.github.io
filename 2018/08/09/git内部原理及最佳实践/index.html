@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/refs.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/basedata.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-08-12T14:04:36.444Z">
+<meta property="og:updated_time" content="2018-08-19T14:42:03.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
 <meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。    近乎所有操作都是本地执行  在Git中的绝大多数操作都只">
@@ -120,7 +120,7 @@
 </li>
 </ul>
 <h3 id="Git对象"><a href="#Git对象" class="headerlink" title="Git对象"></a>Git对象</h3><p>本质上，Git 是一个内容寻址文件系统。核心部分是一个简单的键值对数据库（key-value data store）。 可以向该数据库插入任意类型的内容，它会返回一个键值，通过该键值可以在任意时刻再次检索（retrieve）该内容。 可以通过底层命令 hash-object 来演示上述效果——该命令可将任意数据保存于 .git 目录，并返回相应的键值。</p>
-<h5 id="数据对象-——-对应的就是文件快照中那些发生遍的文件内容"><a href="#数据对象-——-对应的就是文件快照中那些发生遍的文件内容" class="headerlink" title="数据对象 —— 对应的就是文件快照中那些发生遍的文件内容"></a>数据对象 —— 对应的就是文件快照中那些发生遍的文件内容</h5><ul>
+<h5 id="数据对象-——-对应的就是文件快照中那些发生变化文件内容"><a href="#数据对象-——-对应的就是文件快照中那些发生变化文件内容" class="headerlink" title="数据对象 —— 对应的就是文件快照中那些发生变化文件内容"></a>数据对象 —— 对应的就是文件快照中那些发生变化文件内容</h5><ul>
 <li>往Git 数据库存入一些文本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;test content&apos; | git hash-object -w --stdin </span><br><span class="line">d670460b4b4aece5915caf5c68d12f560a9fe3e4</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -138,7 +138,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;version 1&apos; &gt; test.txt </span><br><span class="line">git hash-object -w test.txt </span><br><span class="line">83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>利用 cat-file -t 命令，可以让 Git 告诉我们其内部存储的任何对象类型，只要给定该对象的 SHA-1 值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -t 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -t 83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>问题 ： 在这个（简单的版本控制）系统中，文件名并没有被保存——我们仅保存了文件的内容。</strong></p>
@@ -154,7 +154,7 @@
 <li><p>可以通过 write-tree 命令将暂存区内容写入一个树对象，如果某个树对象此前并不存在的话，当调用 write-tree 命令时，它会根据当前暂存区状态自动创建一个新的树对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git write-tree </span><br><span class="line">d8329fc1cc938780ffdd9f94e0d364e0ea74f579</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>验证是否微树对象</p>
+<li><p>验证是否为树对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -t d8329fc1cc938780ffdd9f94e0d364e0ea74f579</span><br><span class="line">tree</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -162,7 +162,7 @@
 <h5 id="Commit对象"><a href="#Commit对象" class="headerlink" title="Commit对象"></a>Commit对象</h5><p>commit对象则记录了每次提交到本地仓库的文件快照，其中有两个指针，一个指向tree对象，一个则指向上一个commit对象。</p>
 <ul>
 <li><p>使用commit-tree 命令创建一个提交对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo &apos;first commit&apos; | git commit-tree d8329f 	fdf4fc3344e67ab068f836878b6c4951e3b15f3d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo &apos;first commit&apos; | git commit-tree d8329f 	</span><br><span class="line">fdf4fc3344e67ab068f836878b6c4951e3b15f3d</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过 cat-file 命令查看这个新提交对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p fdf4fc3 </span><br><span class="line">tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579 </span><br><span class="line">author Scott Chacon &lt;schacon@gmail.com&gt; 1243040974 -0700 </span><br><span class="line">committer Scott Chacon &lt;schacon@gmail.com&gt; 1243040974 -0700</span><br><span class="line"></span><br><span class="line">first commit</span><br></pre></td></tr></table></figure>
@@ -197,21 +197,49 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/test</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="规范git的使用"><a href="#规范git的使用" class="headerlink" title="规范git的使用"></a>规范git的使用</h3><ul>
-<li>频繁地提交改动<br>经常性地提交改动可以确保不会出现特别庞大的提交，同时也可以比较精准地对应到所需要的改动上。此外，通过频繁地提交也可以比较快速地和其他开发人员来共享你的改动。同样也会避免在整合代码时出现过多的合并冲突。相反的，非常庞大的提交会加大整合代码时出现冲突的风险，解决这些冲突也会非常复杂。</li>
-<li>提交对应改动<br>一次提交要包括一个相关改动。例如，对于两个错误的修复应该进行两次不同的提交。精简的提交可以让其他的开发团队人员更简单地明白其改动的用义。</li>
-<li>提交前测试那些改动</li>
-<li>高质量的提交注释<br><a href="https://segmentfault.com/a/1190000009048911" target="_blank" rel="noopener">超链接名</a></li>
-</ul>
-<h3 id="git-flow-开发流程"><a href="#git-flow-开发流程" class="headerlink" title="git flow 开发流程"></a>git flow 开发流程</h3><p><img src="http://pbv0yiork.bkt.clouddn.com/image/flow.png" alt="git"></p>
+<h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="git-flow-开发流程"><a href="#git-flow-开发流程" class="headerlink" title="git flow 开发流程"></a>git flow 开发流程</h3><p><img src="http://pbv0yiork.bkt.clouddn.com/image/flow.png" alt="git"></p>
 <ul>
 <li>Git flow 使用原则<br>  Master分支是线上稳定分支，Release通常用作测试分支，Develop分支是开发应用的主分支<br>  所有的功能开发都在Feature分支进行，然后合并到Develop分支<br>  Release分支发布后出现问题，直接在Release分支修改，避免Develop分支代码污染</li>
+</ul>
+<h3 id="规范git的使用"><a href="#规范git的使用" class="headerlink" title="规范git的使用"></a>规范git的使用</h3><ul>
+<li>尽早并频繁地提交改动<br>经常性地提交改动可以确保不会出现特别庞大的提交，同时也可以比较精准地对应到所需要的改动上。此外，通过频繁地提交也可以比较快速地和其他开发人员来共享你的改动。同样也会避免在整合代码时出现过多的合并冲突。相反的，非常庞大的提交会加大整合代码时出现冲突的风险，解决这些冲突也会非常复杂。</li>
+<li>提交对应改动<br>一次提交要包括一个相关改动。例如，对于两个错误的修复应该进行两次不同的提交。精简的提交可以让其他的开发团队人员更简单地明白其改动的用义。如果其中一次提交的改动出现了问题，也可以方便地回滚到改动之前的状态。借助暂存功能来标记相关的改动文件，Git 可以为你打造出非常精准的提交。</li>
+<li>提交前测试那些改动<br>不要理所当然地认为自己完成的改动都是正确的。所有的改动一定要通过彻底地测试才表示它真正地被完成了。尽管这些改动可能仅仅是提交到了你的本地仓库中，只有你自己才能看到，但完整的测试同样是非常重要的，因为这些代码可能之后会被推送和共享到远程给其他的开发人员。</li>
+<li><p>Don’t panic<br>As long as you have committed your work (or in many cases even added it with git add) your work will not be lost for at least two weeks unless you really work at it (run commands that manually purge it).<br>When attempting to find your lost commits, first make sure you will not lose any current work. You should commit or stash your current work before performing any recovery efforts that might destroy your current work and perhaps take backups of it (see Backups below). After finding the commits you can reset, rebase, cherry-pick, merge, or otherwise do what is necessary to get the commit history and work tree you desire.</p>
+<ul>
+<li><p>有三个地方可以隐藏“丢失”的变化</p>
+<ul>
+<li>reflog<br>Git reflog 可以查看所有分支的所有操作记录（包括提交、回退、已删除的提交操作记录等)</li>
+<li>lost＆found（git fsck –unreachable）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过该命令你可以看到丢掉的提交。你可以通过运行 git show [commit_hash] 查看提交之后的改变或者运行git merge [commit_hash] 来恢复到之前的提交。<br>git fsck 相对reflog是有优势的。比方说你删除一个远程的分支然后关闭仓库。 用fsck 你可以搜索和恢复已删除的远程分支</p>
+<ul>
+<li><p>stashed（git stash list）<br>你正在修改某个bug或者某个特性，又突然被要求展示你的工作。而你现在所做的工作还不足以提交，这个阶段你还无法进行展示（不能回到更改之前）。在这种情况下， git stash可以帮助你。stash在本质上会取走所有的变更并存储它们为以备将来使用。stash你的变更，你只需简单地运行下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>希望检查stash列表，你可以运行下面的命令：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+<p>  如果你想要解除stash并且恢复未提交的变更，你可以进行apply stash:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply</span><br></pre></td></tr></table></figure>
+<p>  每个stash都有一个标识符，一个唯一的号码,如果你只想留有余地进行apply stash，你应该给apply添加特定的标识符：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;2&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>高质量的提交注释<br><a href="https://segmentfault.com/a/1190000009048911" target="_blank" rel="noopener">超链接名</a></p>
+</li>
+<li>不要提交不完整的改动<br>虽然原则上来说不要提交一些还没有完成的改动，但是对于一个非常庞大的新功能来说，也并不意味着你必须整体完成这个功能后才可以提交。恰恰相反，你必须把那些改动正确地分割成一些有意义的逻辑模块来进行频繁地提交。如果你仅仅是因为急着想要下班，或者是想要得到一个干净的工作副本（比如想要切换到另一个分支上），你可以利用 Git 所提供的储藏（Stash）功能来解决这些问题。切记不要把那些不完整的改动提交到仓库中</li>
+<li>不要更改发布的历史记录</li>
+<li>Release tagging  – 打tag</li>
+<li>使用有用的工具<br>强烈推荐sourceTree</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjkqxadpx0005q442i2jb0ry6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjl0oqxky0002jw429kgib973" class="article-share-link">Share</a>
       
       
     </footer>
