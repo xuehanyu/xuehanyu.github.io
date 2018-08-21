@@ -7,24 +7,26 @@
   
   <title>Git内部原理及“最佳”实践 | 薛涵予微笑着走向生活😊</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。    近乎所有操作都是本地执行  在Git中的绝大多数操作都只">
+  <meta name="description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git内部原理及“最佳”实践">
 <meta property="og:url" content="http://yoursite.com/2018/08/09/git内部原理及最佳实践/index.html">
 <meta property="og:site_name" content="薛涵予微笑着走向生活😊">
-<meta property="og:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。    近乎所有操作都是本地执行  在Git中的绝大多数操作都只">
+<meta property="og:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/git.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/work.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/list.png">
-<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/tree.png">
-<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/refs.png">
-<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/basedata.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch1.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch2.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch3.png">
+<meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/reset.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-08-19T14:56:23.225Z">
+<meta property="og:updated_time" content="2018-08-21T17:20:01.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
-<meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。    近乎所有操作都是本地执行  在Git中的绝大多数操作都只">
+<meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
 <meta name="twitter:image" content="http://pbv0yiork.bkt.clouddn.com/image/git.png">
   
     <link rel="alternate" href="/atom.xml" title="薛涵予微笑着走向生活😊" type="application/atom+xml">
@@ -99,58 +101,59 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Git内部原理"><a href="#Git内部原理" class="headerlink" title="Git内部原理"></a>Git内部原理</h1><h3 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h3><ul>
-<li>直接记录快照，而非差异比较<br>  Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。</li>
+<li>直接记录快照，而非差异比较<br>  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。</li>
 </ul>
 <p><img src="http://pbv0yiork.bkt.clouddn.com/image/git.png" alt="git"></p>
 <ul>
-<li>近乎所有操作都是本地执行<br>  在Git中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。因为你在本地磁盘上就有项目的完整历史，所以大部分操作看起来瞬间完成</li>
-<li>Git保证完整性<br>  Git中所有数据在存储前都计算校验和，然后以校验和来引用，Git 用以计算校验和的机制叫做 SHA-1散列hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：24b9da6552252987aa493b52f8696cd6d3b00373</li>
-<li>三种状态<br>  已提交（committed）、已修改（modified）和已暂存（staged），已提交表示数据已经安全的保存在本地数据库中。已修改表示修改了文件，但还没保存到数据库中。 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。由此引入三区：Git仓库、工作目录以及暂存区。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/work.png" alt="git"><br>基本的git工作流程:<br>  在工作目录中修改文件<br>  暂存文件，将文件快照放入暂存区域<br>  提交更新，找到暂存区域的文件，将快照永久性存储到Git仓库目录</li>
+<li><p>Git保证完整性<br>  Git中所有数据在存储前都计算校验和，然后以校验和来引用，Git 用以计算校验和的机制叫做 SHA-1散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：24b9da6552252987aa493b52f8696cd6d3b00373。实际上，Git数据库中保存信息都是以文件内容的哈希值来索引，而不是文件名。</p>
+</li>
+<li><p>三种状态<br>  工作目录下的每一个文件不外乎有两种状态：已跟踪（tracked）或未跟踪（Untracked）。<br>  已跟踪的文件是指那些被纳入了版本控制的文件，在上次快照中有它们的记录，工作目录中除以跟踪文件意外的所有其他文件都属于未跟踪文件，它们既不存在于上次快照记录中，也没有放入暂存区。<br>  已提交（committed）、已修改（modified）和已暂存（staged），已提交表示数据已经安全的保存在本地数据库中。已修改表示修改了文件，但还没保存到数据库中。 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。<br>  由此引入三区：Git仓库、工作目录以及暂存区。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/work.png" alt="git"><br>基本的git工作流程:<br>  在工作目录中修改文件<br>  暂存文件，将文件快照放入暂存区域<br>  提交更新，找到暂存区域的文件，将快照永久性存储到Git仓库目录</p>
+</li>
 </ul>
-<h3 id="底层命令-（plumbing）"><a href="#底层命令-（plumbing）" class="headerlink" title="底层命令 （plumbing）"></a>底层命令 （plumbing）</h3><p>底层命令可以窥探Git内部的工作机制，也有助于说明Git是如何完成工作的，以及它为何如此运作。多数底层命令并不面向最终用户：它们更适合作为新命令和自定义脚本的组成部分。<br>当在一个新目录或已有目录执行 git init 时，Git 会创建一个.git目录。 这个目录包含了几乎所有Git存储和操作的对象。该目录结构如下所示：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/list.png" alt="git"></p>
+<h3 id="基于的git工作流程（也是我们平时的工作流程）讲其背后的故事"><a href="#基于的git工作流程（也是我们平时的工作流程）讲其背后的故事" class="headerlink" title="基于的git工作流程（也是我们平时的工作流程）讲其背后的故事:"></a>基于的git工作流程（也是我们平时的工作流程）讲其背后的故事:</h3><ul>
+<li><p>当在一个新目录或已有目录执行 git init 时，Git 会创建一个.git目录。 这个目录包含了几乎所有Git存储和操作的对象。该目录结构如下所示：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/list.png" alt="git"></p>
 <ul>
 <li>config项目特有的配置选项</li>
 <li>description文件仅供 GitWeb 程序使用</li>
+<li>hooks包含客户端或服务端的钩子脚本</li>
+<li>info包含一个全局性排除文件</li>
 <li>HEAD指示目前被检出的分支</li>
-<li>包含客户端或服务端的钩子脚本</li>
-<li>包含一个全局性排除文件</li>
 <li>objects存储所有数据内容</li>
 <li><p>refs存储指向分支的提交对象的指针</p>
-<p>  <strong>index                   保存暂存区信息</strong></p>
+<p><strong>index                   保存暂存区信息</strong></p>
 </li>
 </ul>
-<h3 id="Git对象"><a href="#Git对象" class="headerlink" title="Git对象"></a>Git对象</h3><p>本质上，Git 是一个内容寻址文件系统。核心部分是一个简单的键值对数据库（key-value data store）。 可以向该数据库插入任意类型的内容，它会返回一个键值，通过该键值可以在任意时刻再次检索（retrieve）该内容。 可以通过底层命令 hash-object 来演示上述效果——该命令可将任意数据保存于 .git 目录，并返回相应的键值。</p>
-<h5 id="数据对象-——-对应的就是文件快照中那些发生变化文件内容"><a href="#数据对象-——-对应的就是文件快照中那些发生变化文件内容" class="headerlink" title="数据对象 —— 对应的就是文件快照中那些发生变化文件内容"></a>数据对象 —— 对应的就是文件快照中那些发生变化文件内容</h5><ul>
-<li>往Git 数据库存入一些文本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;test content&apos; | git hash-object -w --stdin </span><br><span class="line">d670460b4b4aece5915caf5c68d12f560a9fe3e4</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>-w 选项指示 hash-object 命令存储数据对象；若不指定此选项，则该命令仅返回对应的键值。<br>–stdin 选项则指示该命令从标准输入读取内容；若不指定此选项，则须在命令尾部给出待存储文件的路径</p>
+<li><p>第一步 – 在工作目录中修改文件</p>
 <ul>
-<li>查看 Git 是如何存储数据的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find .git/objects -type f</span><br><span class="line">.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4</span><br></pre></td></tr></table></figure>
+<li><p>首先查看当前的文件状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>可以在 objects 目录下看到一个文件。 这就是开始时 Git 存储内容的方式——一个文件对应一条内容，以该内容加上特定头部信息一起的 SHA-1 校验和为文件命名。</p>
-<ul>
-<li><p>读取数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4</span><br><span class="line">test content</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同样可以将这些操作应用于文件中的内容：<br>eg：对一个文件进行简单的版本控制。 首先，创建一个新文件并将其内容存入数据库</p>
+<li><p>对一个文件进行简单的版本控制。 首先，创建一个新文件并将其内容存入数据库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;version 1&apos; &gt; test.txt </span><br><span class="line">git hash-object -w test.txt </span><br><span class="line">83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>利用 cat-file -t 命令，可以让 Git 告诉我们其内部存储的任何对象类型，只要给定该对象的 SHA-1 值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -t 83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-<p><strong>问题 ： 在这个（简单的版本控制）系统中，文件名并没有被保存——我们仅保存了文件的内容。</strong></p>
-<h5 id="Tree对象"><a href="#Tree对象" class="headerlink" title="Tree对象"></a>Tree对象</h5><p>树对象（tree object），它能解决文件名保存的问题，也允许我们将多个文件组织到一起。所有内容均以树对象和数据对象的形式存储，一个树对象包含了一条或多条树对象记录（tree entry），每条记录含有一个指向数据对象或者子树对象的 SHA-1 指针，以及相应的模式、类型、文件名信息。<br>eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p master^&#123;tree&#125;</span><br></pre></td></tr></table></figure></p>
-<p>——master^{tree} 语法表示 master 分支上最新的提交所指向的树对象</p>
-<p><img src="http://pbv0yiork.bkt.clouddn.com/image/tree.png" alt="git"></p>
+<!-- git status 为跟踪状态 -->
 <ul>
-<li>通常，Git 根据某一时刻暂存区（index 区域）所表示的状态创建并记录一个对应的树对象，如此重复便可依次记录（某个时间段内）一系列的树对象。 因此，为创建一个树对象，首先需要通过暂存一些文件来创建一个暂存区。 可以通过底层命令 update-index 为一个单独文件 test.txt 文件的首个版本——创建一个暂存区。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-index --add --cacheinfo 100644 83baae61804e65cc73a7201a7252750c76066a30 test.txt</span><br></pre></td></tr></table></figure>
+<li>查看 Git 是如何存储数据的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .git/objects/ -type f</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>现在可以在objects目录下看到许多文件，这就是git存储内容的方式 —— 一个文件对应一条内容，该内容加上特定头部信息一起的sha-1校验和为文件命名。</p>
+<ul>
+<li>利用 cat-file 命令 + sha-1值，可以读取数据或让 Git 告诉我们其内部存储的任何对象类型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p     // 读取数据</span><br><span class="line">git cat-file -t     // 获取其内部存储的数据类型</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上述类型的对象我们称之为数据对象（blob object），git对象之一，我们每次对文件修改时，存储的为数据对象。<br><strong>问题 ： 在这个（简单的版本控制）系统中，文件名并没有被保存——我们仅保存了文件的内容。</strong></p>
+</li>
+<li><p>第二步 —- 暂存文件，将文件快照放入暂存区域(git add)</p>
+<ul>
+<li><p>首先了解一个概念 – 树对象（tree object）<br>它能解决文件名保存的问题，也允许我们将多个文件组织到一起。所有内容均以树对象和数据对象的形式存储，一个树对象包含了一条或多条树对象记录（tree entry），每条记录含有一个指向数据对象或者子树对象的 SHA-1 指针，以及相应的模式、类型、文件名信息。<br>eg：查看master 分支上最新的提交所指向的树对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p master^&#123;tree&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通常，Git 根据某一时刻暂存区（index 区域）所表示的状态创建并记录一个对应的树对象，如此重复便可依次记录（某个时间段内）一系列的树对象。 因此，为创建一个树对象，首先需要通过暂存一些文件创    建一个暂存区。 可以通过底层命令 update-index 为一个单独文件 test.txt 文件的首个版本——创建一个暂存区。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-index --add --cacheinfo 100644 83baae61804e65cc73a7201a7252750c76066a30 test.txt</span><br></pre></td></tr></table></figure>
 <p>利用该命令，可以把 test.txt 文件的首个版本人为地加入一个新的暂存区。 必须为上述命令指定 –add 选项，因为此前该文件并不在暂存区中；同样必需的还有 –cacheinfo 选项，因为将要添加的文件位于 Git 数据库中，而不是位于当前目录下。 同时，需要指定文件模式、SHA-1 与文件名</p>
-<ul>
+</li>
 <li><p>可以通过 write-tree 命令将暂存区内容写入一个树对象，如果某个树对象此前并不存在的话，当调用 write-tree 命令时，它会根据当前暂存区状态自动创建一个新的树对象：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git write-tree </span><br><span class="line">d8329fc1cc938780ffdd9f94e0d364e0ea74f579</span><br></pre></td></tr></table></figure>
 </li>
@@ -158,45 +161,55 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -t d8329fc1cc938780ffdd9f94e0d364e0ea74f579</span><br><span class="line">tree</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><strong>问题 ： 现有树对象，代表了跟踪的不同项目快照。若想重用这些快照，必须记住 SHA-1 哈希值。 并且，你也完全不知道是谁保存了这些快照，在什么时刻保存的，以及为什么保存这些快照</strong></p>
-<h5 id="Commit对象"><a href="#Commit对象" class="headerlink" title="Commit对象"></a>Commit对象</h5><p>commit对象则记录了每次提交到本地仓库的文件快照，其中有两个指针，一个指向tree对象，一个则指向上一个commit对象。</p>
+<p>此时我们已经讲text.txt放入暂存区,并创建了tree对象，git的三大对象之一。<br><strong>问题 ： 现有树对象，代表了跟踪的不同项目快照。若想重用这些快照，必须记住 SHA-1 哈希值。 并且，你也完全不知道是谁保存了这些快照，在什么时刻保存的，以及为什么保存这些快照</strong></p>
+</li>
+<li><p>第三步 – 提交更新（git commit），将快照永久的存储倒Git仓库<br>解决上述问题正是 – 提交对象（commit object）能为你保存的基本信息。commit对象则记录了每次提交到本地仓库的文件快照，其中有两个指针，一个指向tree对象，一个则指向上一个commit对象。</p>
 <ul>
 <li><p>使用commit-tree 命令创建一个提交对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo &apos;first commit&apos; | git commit-tree d8329f 	</span><br><span class="line">fdf4fc3344e67ab068f836878b6c4951e3b15f3d</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过 cat-file 命令查看这个新提交对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p fdf4fc3 </span><br><span class="line">tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579 </span><br><span class="line">author Scott Chacon &lt;schacon@gmail.com&gt; 1243040974 -0700 </span><br><span class="line">committer Scott Chacon &lt;schacon@gmail.com&gt; 1243040974 -0700</span><br><span class="line"></span><br><span class="line">first commit</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git cat-file -p fdf4fc3 </span><br><span class="line">tree d8329fc1cc938780ffdd9f94e0d364e0ea74f579 </span><br><span class="line">Author: 薛涵予 &lt;xuehanyu@sunlands.com&gt;</span><br><span class="line">Date:   Tue Aug 21 23:53:26 2018 +0800</span><br><span class="line"></span><br><span class="line">first commit</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>它先指定一个顶层树对象，代表当前项目快照；然后是作者/提交者信息（依据你的 user.name 和 user.email 配置来设定，外加一个时间戳）；留空一行，最后是提交注释。</p>
 <ul>
-<li>执行 git log 查看git提交历史<br>没有借助任何上层命令，仅凭几个底层操作便完成了一个 Git 提交历史的创建。 这就是每次我们运行 git add 和 git commit 命令时， Git 所做的实质工作——将被改写的文件保存为数据对象，更新暂存区，记录树对象，最后创建一个指明了顶层树对象和父提交的提交对象。 这三种主要的 Git 对象——数据对象、树对象、提交对象——最初均以单独文件的形式保存在 .git/objects 目录下。 </li>
+<li>执行 git log –stat 11111 查看git提交历史<br>没有借助任何上层命令，仅凭几个底层操作便完成了一个 Git 提交历史的创建。 这就是每次我们运行 git add 和 git commit 命令时， Git 所做的实质工作——将被改写的文件保存为数据对象，更新暂存区，记录树对象，最后创建一个指明了顶层树对象和父提交的提交对象。 这三种主要的 Git 对象——数据对象、树对象、提交对象——最初均以单独文件的形式保存在 .git/objects 目录下。 </li>
 </ul>
-<h3 id="Git引用"><a href="#Git引用" class="headerlink" title="Git引用"></a>Git引用</h3><p>我们可以借助类似于 git log 1a410e 这样的命令来浏览完整的提交历史，但为了能遍历那段历史从而找到所有相关对象，你仍须记住 1a410e 是最后一个提交。 我们需要一个文件来保存 SHA-1 值，并给文件起一个简单的名字，然后用这个名字指针来替代原始的 SHA-1 值。在 Git 里，这样的文件被称为“引用（references，或缩写为 refs）”；可以在 .git/refs 目录下找到这类含有 SHA-1 值的文件。 它包含了一个简单的目录结构：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/refs.png" alt="git"></p>
+</li>
+</ul>
+<h3 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h3><p>Git的分支，其实本质上仅仅是指向提交对象的可变指针。git的默认分支是master（git init时默认创建），再多次提交操作之后，你其实已经有一个指向最后那个提交对象的master分支。它会在每次提交的操作中自动<br>向前移动。</p>
 <ul>
-<li><p>若要创建一个新引用来帮助记忆最新提交所在的位置，从技术上讲我们只需简单地做如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;1a410efbd13591db07496601ebc7a059dd55cfe9&quot; &gt; .git/refs/heads/master</span><br></pre></td></tr></table></figure>
+<li>假设，Git仓库目前的分支及提交历史如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/branch.png" alt="git"></li>
+<li><p>如何创建分支？<br>eg： 创建test分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch test  //  这会在当前提交对象上创建一个指针</span><br></pre></td></tr></table></figure>
+<p>底层命令实现：(.git/refs)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-ref refs/head/test sha-1</span><br></pre></td></tr></table></figure>
+<p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch1.png" alt="git"><br>由图可看到，有两个指向相同提交历史的分支，那么Git又是怎么知道当前在哪一个分支上呢？ – HEAD特殊指针<br>HEAD是当前分支引用的指针，它总是指向该分支上的最后一次提交，这也标示HEAD将时下一次提交的父节点。通常，理解HEAD最简单的方式，就是将它看做上一次提交的快照。<br>执行git branch test 仅仅创建了新分支，并不会自动切换倒新分支中去。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/branch2.png" alt="git"></p>
+<p><strong>当运行类似于 git branch (branchname) 这样的命令时，Git 实际上会运行 update-ref 命令，取得当前所在分支最新提交对应的 SHA-1 值，并将其加入你想要创建的任何新引用中。</strong></p>
 </li>
-<li><p>我们不提倡直接编辑引用文件。 如果想更新某个引用，Git 提供了一个更加安全的命令 update-ref 来完成此事：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git update-ref refs/heads/master 1a410efbd13591db07496601ebc7a059dd55cfe9</span><br></pre></td></tr></table></figure>
+<li><p>切换分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout test    // 这样，HEAD就指向了test分支</span><br></pre></td></tr></table></figure>
+<p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch3.png" alt="git"></p>
+<ul>
+<li><p>切换分支，实则是将HEAD指向所要切换的分支</p>
+<ul>
+<li><p>查看HEAD文件的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat .git/HEAD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>底层实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>这基本就是 Git 分支的本质：一个指向某一系列提交之首的指针或引用。<br>Git数据库从概念上看起来像：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/basedata.png" alt="git"><br>当运行类似于 git branch (branchname) 这样的命令时，Git 实际上会运行 update-ref 命令，取得当前所在分支最新提交对应的 SHA-1 值，并将其加入你想要创建的任何新引用中。</p>
-<p><strong>问题 ：现在的问题是，当你执行 git branch (branchname) 时，Git 如何知道最新提交的 SHA-1 值呢</strong></p>
-<h4 id="HEAD引用"><a href="#HEAD引用" class="headerlink" title="HEAD引用"></a>HEAD引用</h4><ul>
-<li><p>HEAD 文件是一个符号引用（symbolic reference），指向目前所在的分支。 所谓符号引用，意味着它并不像普通引用那样包含一个 SHA-1 值——它是一个指向其他引用的指针。如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果执行 git checkout test，Git 会像这样更新 HEAD 文件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/test</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当执行git commit时，该命令会创建一个提交对象，并用HEAD文件中那个引用所指向的SHA-1值设置其父提交字段<br>  同样存在一个更安全的命令来完成此事：symbolic-ref。 可以借助此命令来查看 HEAD 引用对应的值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD</span><br><span class="line">refs/heads/master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>同样可以设置 HEAD 引用的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br><span class="line">cat .git/HEAD</span><br><span class="line">ref: refs/heads/test</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>知道了git add 、 git branch 等命令背后git的操作，其实我们工作中常见的一些操作也都是围绕blob对象、tree对象、commit对象来进行操作的。<br>Git 主要的目的是通过操控这三棵树来以更加连续的状态记录项目的快照<br>eg： 重置<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout</span><br></pre></td></tr></table></figure></p>
+<p>  <img src="http://pbv0yiork.bkt.clouddn.com/image/reset.png" alt="git"></p>
 <h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="git-flow-开发流程"><a href="#git-flow-开发流程" class="headerlink" title="git flow 开发流程"></a>git flow 开发流程</h3><p><img src="http://pbv0yiork.bkt.clouddn.com/image/flow.png" alt="git"></p>
 <ul>
 <li>Git flow 使用原则<br>  Master分支是线上稳定分支，Release通常用作测试分支，Develop分支是开发应用的主分支<br>  所有的功能开发都在Feature分支进行，然后合并到Develop分支<br>  Release分支发布后出现问题，直接在Release分支修改，避免Develop分支代码污染</li>
@@ -233,14 +246,14 @@
 <li>不要提交不完整的改动<br>虽然原则上来说不要提交一些还没有完成的改动，但是对于一个非常庞大的新功能来说，也并不意味着你必须整体完成这个功能后才可以提交。恰恰相反，你必须把那些改动正确地分割成一些有意义的逻辑模块来进行频繁地提交。如果你仅仅是因为急着想要下班，或者是想要得到一个干净的工作副本（比如想要切换到另一个分支上），你可以利用 Git 所提供的储藏（Stash）功能来解决这些问题。切记不要把那些不完整的改动提交到仓库中</li>
 <li>不要更改发布的历史记录</li>
 <li>Release tagging  – 打tag</li>
-<li>使用有用的工具<br>强烈推荐sourceTree</li>
+<li>使用有用的工具<br>强烈安利sourceTree</li>
 </ul>
 <h3 id="推荐git相关内容"><a href="#推荐git相关内容" class="headerlink" title="推荐git相关内容"></a>推荐git相关内容</h3><p><a href="https://bingohuang.gitbooks.io/progit2/content/" target="_blank" rel="noopener">Pro Git</a><br><a href="http://sethrobertson.github.io/GitBestPractices/" target="_blank" rel="noopener">Git 最佳实践</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjl0z6j4u0005ru42gh1c5k78" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjl3qpxlz0001i7421hhprerj" class="article-share-link">Share</a>
       
       
     </footer>
