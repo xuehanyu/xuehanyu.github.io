@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch2.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch3.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-09-11T15:51:49.518Z">
+<meta property="og:updated_time" content="2018-09-14T08:19:18.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
 <meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
@@ -210,7 +210,9 @@
 <li>尽早并频繁地提交改动<br>经常性地提交改动可以确保不会出现特别庞大的提交，同时也可以比较精准地对应到所需要的改动上。此外，通过频繁地提交也可以比较快速地和其他开发人员来共享你的改动。同样也会避免在整合代码时出现过多的合并冲突。相反的，非常庞大的提交会加大整合代码时出现冲突的风险，解决这些冲突也会非常复杂。</li>
 <li>提交对应改动<br>一次提交要包括一个相关改动。例如，对于两个错误的修复应该进行两次不同的提交。精简的提交可以让其他的开发团队人员更简单地明白其改动的用义。如果其中一次提交的改动出现了问题，也可以方便地回滚到改动之前的状态。借助暂存功能来标记相关的改动文件，Git 可以为你打造出非常精准的提交。</li>
 <li>提交前测试那些改动<br>不要理所当然地认为自己完成的改动都是正确的。所有的改动一定要通过彻底地测试才表示它真正地被完成了。尽管这些改动可能仅仅是提交到了你的本地仓库中，只有你自己才能看到，但完整的测试同样是非常重要的，因为这些代码可能之后会被推送和共享到远程给其他的开发人员。</li>
-<li><p>Don’t panic<br>As long as you have committed your work (or in many cases even added it with git add) your work will not be lost for at least two weeks unless you really work at it (run commands that manually purge it).<br>When attempting to find your lost commits, first make sure you will not lose any current work. You should commit or stash your current work before performing any recovery efforts that might destroy your current work and perhaps take backups of it (see Backups below). After finding the commits you can reset, rebase, cherry-pick, merge, or otherwise do what is necessary to get the commit history and work tree you desire.</p>
+<li><p>Don’t panic<br>只要你已经完成了你的工作（或者在许多情况下甚至已经添加了它git add），你的工作将不会丢失至少两周，运行命令手动清除它</p>
+<!-- As long as you have committed your work (or in many cases even added it with git add) your work will not be lost for at least two weeks unless you really work at it (run commands that manually purge it).
+When attempting to find your lost commits, first make sure you will not lose any current work. You should commit or stash your current work before performing any recovery efforts that might destroy your current work and perhaps take backups of it (see Backups below). After finding the commits you can reset, rebase, cherry-pick, merge, or otherwise do what is necessary to get the commit history and work tree you desire. -->
 <ul>
 <li><p>有三个地方可以隐藏“丢失”的变化</p>
 <ul>
@@ -235,9 +237,10 @@
 </li>
 <li><p>高质量的提交注释<br><a href="https://segmentfault.com/a/1190000009048911" target="_blank" rel="noopener">超链接名</a></p>
 </li>
-<li>不要提交不完整的改动<br>虽然原则上来说不要提交一些还没有完成的改动，但是对于一个非常庞大的新功能来说，也并不意味着你必须整体完成这个功能后才可以提交。恰恰相反，你必须把那些改动正确地分割成一些有意义的逻辑模块来进行频繁地提交。如果你仅仅是因为急着想要下班，或者是想要得到一个干净的工作副本（比如想要切换到另一个分支上），你可以利用 Git 所提供的储藏（Stash）功能来解决这些问题。切记不要把那些不完整的改动提交到仓库中</li>
-<li>不要更改发布的历史记录</li>
-<li>Release tagging  – 打tag</li>
+<li><p>不要提交不完整的改动<br>虽然原则上来说不要提交一些还没有完成的改动，但是对于一个非常庞大的新功能来说，也并不意味着你必须整体完成这个功能后才可以提交。恰恰相反，你必须把那些改动正确地分割成一些有意义的逻辑模块来进行频繁地提交。如果你仅仅是因为急着想要下班，或者是想要得到一个干净的工作副本（比如想要切换到另一个分支上），你可以利用 Git 所提供的储藏（Stash）功能来解决这些问题。切记不要把那些不完整的改动提交到仓库中</p>
+</li>
+<li><p>Release tagging  – 打tag</p>
+</li>
 <li>使用有用的工具<br>强烈安利sourceTree</li>
 </ul>
 <h3 id="推荐git相关内容"><a href="#推荐git相关内容" class="headerlink" title="推荐git相关内容"></a>推荐git相关内容</h3><p><a href="https://bingohuang.gitbooks.io/progit2/content/" target="_blank" rel="noopener">Pro Git</a><br><a href="http://sethrobertson.github.io/GitBestPractices/" target="_blank" rel="noopener">Git 最佳实践</a></p>
@@ -245,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjlxweauo0005vm420k572wbs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjm1qbbox0005vx425pq5ujij" class="article-share-link">Share</a>
       
       
     </footer>
