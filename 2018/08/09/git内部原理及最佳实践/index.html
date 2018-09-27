@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch2.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch3.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-09-14T08:19:18.655Z">
+<meta property="og:updated_time" content="2018-09-27T16:03:37.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
 <meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
@@ -147,7 +147,7 @@
 </li>
 </ul>
 <h3 id="git-是如何运转的？"><a href="#git-是如何运转的？" class="headerlink" title="git 是如何运转的？"></a>git 是如何运转的？</h3><ul>
-<li><p>初始化git 仓库（git init），假设其中有一个文件，我们称其为该文件的v1版本<br><img src="http://pbv0yiork.bkt.clouddn.com/init.png" alt="git"><br>底层命令实现</p>
+<li><p>初始化git 仓库（git init），创建一个文件file.txt，我们称其为该文件的v1版本<br>git为我们自动创建第一个分之master，以及指向master的一个指针HEAD<br><img src="http://pbv0yiork.bkt.clouddn.com/init.png" alt="git"><br>底层命令实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;version 1&apos; &gt; test.txt </span><br><span class="line">git hash-object -w test.txt </span><br><span class="line">83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
 <p>此时，只有工作目录有内容</p>
 </li>
@@ -157,27 +157,40 @@
 <li><p>git commit<br>首先，他会移除索引中的内容并将它保存一个永久的快照，<br>然后，创建一个指向该快照的提交对象，最后更新master来指向本次提交<br><img src="http://pbv0yiork.bkt.clouddn.com/image/commit.png" alt="git"></p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;first commit&apos; | git commit-tree d8329f 	</span><br><span class="line">fdf4fc3344e67ab068f836878b6c4951e3b15f3d</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>对文件修改，然后提交它，会经历同样的过程<br>首先，编辑文件，版本为v2<br><img src="http://pbv0yiork.bkt.clouddn.com/image/edit.png" alt="git"><br>运行 git status， 显示changes not staged for commit – 因为索引去与工作目录之间存在不同，<br>接着，运行git add将其暂存到索引中<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editadd.png" alt="git"><br>由于索引和HEAD不同，若运行git status 会看到， changes to be committed  — 下一次提交与上一次提交不同<br>最后，git commit 完成<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editcommit.png" alt="git"><br>切换分支或克隆的过程也类似，当检出一个分支时，它会修改HEAD指向新的分支引用，将索引填充为该次提交的快照，然后将索引的内容复制到工作目录中。</p>
-<h3 id="找不同-–-reset-和-chekcout"><a href="#找不同-–-reset-和-chekcout" class="headerlink" title="找不同 –  reset 和 chekcout"></a>找不同 –  reset 和 chekcout</h3><h2 id="reset-做了什么？"><a href="#reset-做了什么？" class="headerlink" title="reset 做了什么？"></a>reset 做了什么？</h2><p>为了演示下面例子，假设我们再次修改了file.txt文件并第三次提交它。现在历史看起来像：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/reset2.png" alt="git"></p>
+<li><p>对文件修改，然后提交它，会经历同样的过程<br>首先，编辑文件，版本为v2<br><img src="http://pbv0yiork.bkt.clouddn.com/image/edit.png" alt="git"><br>运行 git status， 显示changes not staged for commit – 因为索引区与工作目录之间存在不同，<br>接着，运行git add将其暂存到索引中<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editadd.png" alt="git"><br>由于索引和HEAD不同，若运行git status 会看到， changes to be committed  — 下一次提交与上一次提交不同<br>最后，git commit 完成<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editcommit.png" alt="git"><br>切换分支或克隆的过程也类似，当检出一个分支时，它会修改HEAD指向新的分支引用，将索引填充为该次提交的快照，然后将索引的内容复制到工作目录中。</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>  每次我们运行git add 、 git commit 时，Git所做的实质工作：</p>
 <ul>
-<li>移动HEAD<br>reset做的第一件事就是移动HEAD的指向，reset移动HEAD指向的分支<br><img src="http://pbv0yiork.bkt.clouddn.com/image/soft.png" alt="git"><br><strong>它本质上是撤销上一次git commit命令</strong><br>当你将它reset回HEAD～（HEAD的父节点）时，其实就是把该分支移动回原来的位置，而不会改变索引和工作目录</li>
+<li>将被改写的文件保存为数据对象</li>
+<li>更新暂存区，记录树对象（通常，Git根据某一时刻暂存区所表示的状态创建并记录一个对应的树对象，如此重复便可依次记录（某个时间段内）一系列的树对象）</li>
+<li>最后创建一个提交对象，指明了顶层树对象（代表当前项目快照）和父提交对象（上一次的提交对象）。 </li>
+</ul>
+<h3 id="找不同-–-reset-和-chekcout"><a href="#找不同-–-reset-和-chekcout" class="headerlink" title="找不同 –  reset 和 chekcout"></a>找不同 –  reset 和 chekcout</h3><h2 id="reset-做了什么？"><a href="#reset-做了什么？" class="headerlink" title="reset 做了什么？"></a>reset 做了什么？</h2><p>  为了演示下面例子，再次修改了file.txt文件并第三次提交它。现在历史看起来像：<br>    <img src="http://pbv0yiork.bkt.clouddn.com/image/reset2.png" alt="git"></p>
+<ul>
+<li><p>移动HEAD<br>  reset做的第一件事就是移动HEAD的指向，reset移动HEAD以及其指向的分支<br><img src="http://pbv0yiork.bkt.clouddn.com/image/soft.png" alt="git"><br><strong>它本质上是撤销上一次git commit命令</strong><br>当你运行commit时，git会创建一个新的提交，并移动HEAD所指向的分之来使其指向该提交。当你将它reset回HEAD～（HEAD的父节点）时，其实就是把该分支移动回原来的位置，而不会改变索引和工作目录</p>
+<ul>
 <li>更新索引（–mixed）<br>reset会用HEAD指向的当前快照的内容来更新索引<br><img src="http://pbv0yiork.bkt.clouddn.com/image/mixed.png" alt="git"><br>如果指定–mixed 选项，reset将会在这时停止，这也是默认行为，如果没有指定任何选项（在本例中 git reset HEAD～），这就是命令将会停止的地方。<br>由图可看出，它依然回撤销上一次的提交，还会取消暂存所有的东西，于是，我们回滚倒了所有git add 和git commit 的命令执行之前。</li>
 <li>更新所有工作目录 （–hard）<br>reset要做的第三件事就是让工作目录看起来像索引，如果使用–hard选项，它将会继续这一步。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/hard.png" alt="git"><br>⚠️注意：–hard标记时reset命令唯一危险用法，它也是Git会真正地销毁数据的仅有的几个操作之一。在这种特殊的情况下，Git数据库中的一个提交内还留有该文件的v3版本，我们可以通过reflog来找回它。但是若该文件还未提交，Git仍会覆盖它从而导致无法恢复</li>
-<li>总结<br>reset命令会以特定的顺序充血这三棵树，在你指定一下选项时会停止；<ul>
-<li>移动HEAD分支的只想（若指定 –soft，则到此停止）</li>
+<li>总结<br>reset命令会以特定的顺序重写这三棵树，在你指定一下选项时会停止；<ul>
+<li>移动HEAD分支的指向（若指定 –soft，则到此停止）</li>
 <li>使索引看起来像HEAD（若未指定 –hard，则到此停止）</li>
-<li>使工作目录看起来像索引<h2 id="reset-和-checkout的区别"><a href="#reset-和-checkout的区别" class="headerlink" title="reset 和 checkout的区别"></a>reset 和 checkout的区别</h2>checkout也操纵这三棵树</li>
+<li>使工作目录看起来像索引<h2 id="checkout-做了什么？"><a href="#checkout-做了什么？" class="headerlink" title="checkout 做了什么？"></a>checkout 做了什么？</h2></li>
 </ul>
 </li>
-<li>首先不同于–hard， checkout 对工作目录是安全<br>它会通过检查来确保不会将已更改的文件吹走，其实它还更聪明些，它会在工作目录中先试着简单合并下，这样所有还未修改过的文件都会被更新，而reset–hard则会不做检查<br>就全面替换所有东西。</li>
+<li>git checkout – <file>  撤销修改，用暂存区的某个文件来覆盖工作区，经常用于撤销一些修改<br>实质 ： git checkout – <file> 是用来是工作区回到上次操作git add时的样子</file></file></li>
+<li>git chekout HEAD <file> 是用版本库同时覆盖暂存区和工作区，用来彻底撤销一个修改，这个命令更加危险，因为它会同时修改工作区和暂存取，且无法撤销</file></li>
+</ul>
+<h2 id="reset-和-checkout的区别"><a href="#reset-和-checkout的区别" class="headerlink" title="reset 和 checkout的区别"></a>reset 和 checkout的区别</h2><ul>
+<li>可以实现相同的功能，比如还原本地文件，但是reset更强调“撤销”，比如撤销暂存区、撤销暂存区和本地，而checkout更强调“替换”，比如用暂存区内容替换本地，用head指向目录替换暂存区和本地。</li>
 <li>reset会移动HEAD分支的指向，而checkout只会移动HEAD自身来指向另一个分支。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/reset.png" alt="git"></li>
 </ul>
 </li>
 </ul>
-<h3 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h3><p>Git的分支，其实本质上仅仅是指向提交对象的可变指针。git的默认分支是master（git init时默认创建），再多次提交操作之后，你其实已经有一个指向最后那个提交对象的master分支。它会在每次提交的操作中自动<br>向前移动。</p>
+<h3 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h3><p>Git的分支，其实本质上仅仅是指向提交对象的可变指针。git的默认分支是master（git init时默认创建），再多次提交操作之后，你其实已经有一个指向最后那个提交对象的master分支。它会在每次提交的操作中自动 向前移动。</p>
 <ul>
 <li>假设，Git仓库目前的分支及提交历史如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/branch.png" alt="git"></li>
-<li><p>如何创建分支？<br>eg： 创建test分支</p>
+<li><p>如何创建分支？<br>eg： 创建test分支（创建了一个可以移动的新的指针）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch test  //  这会在当前提交对象上创建一个指针</span><br></pre></td></tr></table></figure>
 <p>底层命令实现：(.git/refs)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-ref refs/head/test sha-1</span><br></pre></td></tr></table></figure>
@@ -188,19 +201,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout test    // 这样，HEAD就指向了test分支</span><br></pre></td></tr></table></figure>
 <p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch3.png" alt="git"></p>
 <ul>
-<li>切换分支，实则是将HEAD指向所要切换的分支<ul>
+<li>切换分支，实则是将HEAD指向所要切换的分支<br>这条命令做了两件事，一是使HEAD指回master分支，二是将工作目录恢复成master分支所指向的快照内容<ul>
 <li>底层实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>每次我们运行git add 、 git commit 时，Git所做的实质工作：</p>
-<ul>
-<li>将被改写的文件保存为数据对象</li>
-<li>更新暂存区，记录树对象（通常，Git根据某一时刻暂存区所表示的状态创建并记录一个对应的树对象，如此重复便可依次记录（某个时间段内）一系列的树对象）</li>
-<li>最后创建一个提交对象，指明了顶层树对象（代表当前项目快照）和父提交对象（上一次的提交对象）。 </li>
 </ul>
 <h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="git-flow-开发流程"><a href="#git-flow-开发流程" class="headerlink" title="git flow 开发流程"></a>git flow 开发流程</h3><p><img src="http://pbv0yiork.bkt.clouddn.com/image/flow.png" alt="git"></p>
 <ul>
@@ -248,7 +255,7 @@ When attempting to find your lost commits, first make sure you will not lose any
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjm1ruich0005zi42kqvs2glu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjmkprmua00058642tmzpkf9p" class="article-share-link">Share</a>
       
       
     </footer>
