@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch2.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/branch3.png">
 <meta property="og:image" content="http://pbv0yiork.bkt.clouddn.com/image/flow.png">
-<meta property="og:updated_time" content="2018-09-27T16:03:37.474Z">
+<meta property="og:updated_time" content="2018-09-28T07:56:03.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git内部原理及“最佳”实践">
 <meta name="twitter:description" content="Git内部原理Git基础 直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如">
@@ -201,7 +201,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout test    // 这样，HEAD就指向了test分支</span><br></pre></td></tr></table></figure>
 <p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch3.png" alt="git"></p>
 <ul>
-<li>切换分支，实则是将HEAD指向所要切换的分支<br>这条命令做了两件事，一是使HEAD指回master分支，二是将工作目录恢复成master分支所指向的快照内容<ul>
+<li>切换分支，实则是将HEAD指向所要切换的分支<br>这个命令做的三件事：<br>  将HEAD指向对应分支的最后一次commit<br>  将HEAD指向的commit里所有文件的snapshot替换掉Index区域里原来的内容（将工作目录恢复成master分支所指向的快照内容）<br>  将Index区域里的内容填充到Working Directory里<ul>
 <li>底层实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-ref HEAD refs/heads/test</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -255,7 +255,7 @@ When attempting to find your lost commits, first make sure you will not lose any
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjmksax1r0005wa42mijvhdjv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjmlppnjg0005qafyc7pwkr6r" class="article-share-link">Share</a>
       
       
     </footer>
