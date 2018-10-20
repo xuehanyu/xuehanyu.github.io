@@ -66,6 +66,101 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数组一些常用方法总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/20/数组一些常用方法总结/" class="article-date">
+  <time datetime="2018-10-20T14:38:36.832Z" itemprop="datePublished">2018-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>哈哈，交代一下背景哈，数组在我们编程中在常用不过了，可是总是使用一次忘一次，这个方法到底改不改变原数组？这个方法到底返回什么值？常常混淆，不过反复看了一些书籍以及在实际工作中的应用，让我对数组的方法也有了更深的理解，那就必须要记录一哈哈，以防上了年纪以后又忘记😄。</p>
+<p>数组，一个存储元素的线性集合，元素可以通过索引来任意存取。其常见使用方法如下：</p>
+<h3 id="栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）"><a href="#栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）" class="headerlink" title="栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）"></a>栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）</h3><ul>
+<li>push() – 可以接收任意类型的参数，把它们逐个添加到数组的末尾，返回值是数组的长度</li>
+<li>pop() – 从数组的末尾移除最后一项，减少数组的length， 返回删除的项<br>eg:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">console.log(arr.push(<span class="number">100</span>))    <span class="comment">// 7</span></span><br><span class="line">console.log(arr)             <span class="comment">//  [1, 2, 6, 8, 3, 6, 100]</span></span><br><span class="line">console.log(arr.pop())       <span class="comment">// 100</span></span><br><span class="line">console.log(arr)           <span class="comment">//[1, 2, 6, 8, 3, 6]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="队列方法-（FIFO）"><a href="#队列方法-（FIFO）" class="headerlink" title="队列方法 （FIFO）"></a>队列方法 （FIFO）</h3><ul>
+<li>unshift()  –  可以接受任务类型的参数，从数组的前端添加项，返回数组的length</li>
+<li>shift（）  –  从数组的前端取出项，返回删除的项<br>eg:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">console.log(arr.unshift(<span class="number">100</span>))    <span class="comment">// 7</span></span><br><span class="line">console.log(arr)             <span class="comment">//  [100,1, 2, 6, 8, 3, 6]</span></span><br><span class="line">console.log(arr.shift())       <span class="comment">// 100</span></span><br><span class="line">console.log(arr)           <span class="comment">//[1, 2, 6, 8, 3, 6]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ul>
+<li><p>concat() – 可以基于当前数组创建一个新的数组, 并不改变原属组,返回值新数组</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">const newarr = arr.concat(<span class="number">6</span>,[<span class="number">8</span>,<span class="number">9</span>])</span><br><span class="line">console.log(arr)   <span class="comment">//  [1,2,3]</span></span><br><span class="line">console.log(newarr)   <span class="comment">// [1,2,3,6,8,9]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>slice（） – 可以基于当前数组中的一个项和多个项创建一个新的数组，接受两个参数，起始位置，不改变原属组。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> newarr = arr.slice（<span class="number">1</span>）</span><br><span class="line">console.<span class="built_in">log</span>(arr)   <span class="comment">//  [1,2,3]</span></span><br><span class="line">console.<span class="built_in">log</span>(newarr)   <span class="comment">// [2,3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>splice()  – 它的功能非常之强大，可以实现增、删、替换，改变原属组</p>
+<ul>
+<li><p>增加元素 – 可以向制定位置插入任意数量的项，提供三个参数：起始位置、0（要删除的项数）、要插入的项</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">console.log(arr)    <span class="comment">//[2, 3, 5, 4, 6, 8, 10]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   []   返回一个空数组</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除元素 – 可以删除任意数量的项，需要两个参数： 要删除第一项的位置，和要删除的项数</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">2</span>,<span class="number">2</span>)   <span class="comment">//  从2的位置，删除两项</span></span><br><span class="line">console.log(arr)   <span class="comment">//    [1,3,9]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   [5,7]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替换元素  – 可以替换任意位置的元素，且同时删除任意数量的项，需要三个参数： 起始位置、要删除的项数和要插入的任意数量的项</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">2</span>,<span class="number">2</span>,<span class="number">100</span>,<span class="number">101</span>,<span class="number">102</span>)   <span class="comment">//  从2的位置，删除两项,插入三项</span></span><br><span class="line">console.log(arr)   <span class="comment">//    [1,3,100,101,102，9]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   [5,7]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
+<li>indexOf()  </li>
+<li>lastIndexOf()</li>
+</ul>
+<p>这两个方法都接受两个参数 ： 要查找的项、和查找的起点位置的索引，不同的是indexOf从数组的开头开始向后查找，lastIndexOf从数组的末尾向前查找，查到则返回相应的位置，没查到则返回-1.</p>
+<h3 id="迭代方法-–-ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array"><a href="#迭代方法-–-ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array" class="headerlink" title="迭代方法 – ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array"></a>迭代方法 – ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array</h3><ul>
+<li><p>every() – 对数组每一项都运行给定的函数，如果对每一项都返回true，则返回true</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.every((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>some() – 对数组每一项都运行给定的函数，如果有一项返回true，则返回true</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.some((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">//  true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter() – 对数组每一项都运行给定的函数，返回反函数会返回true的项组成的数组</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.filter((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">// [3,4,5,6,4,3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>forEach() – 对数组中的每一项运行给定函数，该方法没有返回值</p>
+</li>
+<li><p>map() – 对数组中每一项运行给定的函数，返回每次函数调用过的结果组成的数组</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.map((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item*<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">// [2,4,6,8,10,12,8,6,4,2]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>以上方法都不会改变数组中包含的值</strong></p>
+<h3 id="归并方法-–-ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array-这个函数返回的任何值都会作为第一个参数自动传给下一项。"><a href="#归并方法-–-ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array-这个函数返回的任何值都会作为第一个参数自动传给下一项。" class="headerlink" title="归并方法 – ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array,这个函数返回的任何值都会作为第一个参数自动传给下一项。"></a>归并方法 – ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array,这个函数返回的任何值都会作为第一个参数自动传给下一项。</h3><ul>
+<li>reduce() – 可以执行求数组中所有值之和的操作<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">values</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="built_in">var</span> <span class="built_in">sum</span> = <span class="built_in">values</span>.reduce((prev,cur,index,<span class="built_in">array</span>)=&gt;&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(prev,cur,index)</span><br><span class="line">    <span class="built_in">return</span> prev+cur</span><br><span class="line">&#125;)</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/20/数组一些常用方法总结/" data-id="cjnhju0oj0000ix42zmas2lpw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-浏览器缓存机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/13/浏览器缓存机制/" class="article-date">
@@ -134,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/13/浏览器缓存机制/" data-id="cjn78pu0u0005t542wa8z1ct2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/13/浏览器缓存机制/" data-id="cjnhju0op0002ix42p5mgbpmy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +406,7 @@ When attempting to find your lost commits, first make sure you will not lose any
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjn78pu1b0006t5420zaezb4p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjnhju0pf0007ix4225rsjyio" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +449,7 @@ When attempting to find your lost commits, first make sure you will not lose any
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/js基础——原始值的包装对象/" data-id="cjn78pu0r0002t542wtp829as" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/29/js基础——原始值的包装对象/" data-id="cjnhju0ow0006ix42kufvz3ml" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,54 +507,7 @@ When attempting to find your lost commits, first make sure you will not lose any
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjn78pu0t0004t542r4ce1q7t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-copyObj" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/14/copyObj/" class="article-date">
-  <time datetime="2018-07-14T14:14:56.456Z" itemprop="datePublished">2018-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/copyObj/">浅复制（浅拷贝）和深复制（深拷贝）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>JS中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>堆内存用于存放由new创建的对象，栈内存存放一些基本类型的变量和对象的引用变量。<br>浅拷贝：仅仅复制对象的引用，而不是对象本身；<br>深拷贝：把复制的对象所引用的全部对象都复制一遍</p>
-<h3 id="对于简单变量，内存小，直接复制而不会发生引用"><a href="#对于简单变量，内存小，直接复制而不会发生引用" class="headerlink" title="对于简单变量，内存小，直接复制而不会发生引用"></a>对于简单变量，内存小，直接复制而不会发生引用</h3><p>eg：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">123</span></span><br><span class="line">Var <span class="selector-tag">b</span> = a</span><br><span class="line"><span class="selector-tag">a</span> = <span class="number">123456</span></span><br><span class="line">Console.log(a).  <span class="comment">// 123456</span></span><br><span class="line">Console.log(b).  <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="引用只发生在对象身上，如数组、对象"><a href="#引用只发生在对象身上，如数组、对象" class="headerlink" title="引用只发生在对象身上，如数组、对象"></a>引用只发生在对象身上，如数组、对象</h3><p>（一）数组<br>浅拷贝eg：<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">Var arr2 = arr1 </span><br><span class="line">arr1.<span class="keyword">push</span>(<span class="number">4</span>)</span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4]</span></span><br><span class="line">arr2.<span class="keyword">push</span>(<span class="number">6</span>) </span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4,6]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的方法:<br>eg1:    Array.from<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Var arr3 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]</span><br><span class="line">var arr4 = Array.from(arr3)</span><br><span class="line">arr3.push(<span class="number">9</span>)</span><br><span class="line">Console.log(arr3).  <span class="comment">// [1,3,5,7,9]</span></span><br><span class="line">Console.log(arr4) <span class="comment">//[1,3,5,7]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg2: …运算符<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr5 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>]</span><br><span class="line">Var arr6 = […arr5]</span><br><span class="line">arr5.push(<span class="number">10</span>)</span><br><span class="line">Console.log(arr5).    <span class="comment">// [2,4,6,8,10]</span></span><br><span class="line">Console.log(arr6).     <span class="comment">// [2,4,6,8]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg3 : Array.map()<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr7 = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">Var arr8 = arr7.map(item =&gt; &#123; return item &#125;)</span><br><span class="line">arr7.push(<span class="number">8</span>)</span><br><span class="line">Console.log(arr7).  <span class="comment">// [2,3,5,6,8]</span></span><br><span class="line">Console.log(arr8).  <span class="comment">// [2,3,5,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg4: 通过循环来控制<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr9 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">var arr10 = []</span><br><span class="line">for(var I=<span class="number">0</span>;i&lt;arr9.length;i++)&#123; arr10[i] = arr9[i] &#125;</span><br><span class="line">arr9.push(<span class="number">6</span>)</span><br><span class="line">Console.log(arr9).     <span class="comment">// [1,2,3,4,5,6]</span></span><br><span class="line">Console.log(arr10).    <span class="comment">//. [1,2,3,4]</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h3 id="浅拷贝的实现："><a href="#浅拷贝的实现：" class="headerlink" title="浅拷贝的实现："></a>浅拷贝的实现：</h3><p>eg1: 直接赋值<br>eg2: Object.assign({}, target)<br>eg3: for in循环<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleClone</span><span class="params">(initalObj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        obj[i] = initalObj[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的实现：<br>eg1:JSON.parse<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        obj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(initalObj));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg2: 递归思想<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj1,obj2)&#123;</span><br><span class="line">  var obj2=obj2||&#123;&#125;; <span class="comment">//最初的时候给它一个初始值=它自己或者是一个json</span></span><br><span class="line">  <span class="keyword">for</span>(var <span class="built_in">name</span> <span class="built_in">in</span> obj1)&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">typeof</span> obj1[<span class="built_in">name</span>] === <span class="string">"object"</span>)&#123; <span class="comment">//先判断一下obj[name]是不是一个对象</span></span><br><span class="line">          obj2[<span class="built_in">name</span>]= (obj1[<span class="built_in">name</span>].constructor===Array)?[]:&#123;&#125;; <span class="comment">//我们让要复制的对象的name项=数组或者是json</span></span><br><span class="line">          deepClone(obj1[<span class="built_in">name</span>],obj2[<span class="built_in">name</span>]); <span class="comment">//然后来无限调用函数自己 递归思想</span></span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          obj2[<span class="built_in">name</span>]=obj1[<span class="built_in">name</span>];  <span class="comment">//如果不是对象，直接等于即可，不会发生引用。</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj2; <span class="comment">//然后在把复制好的对象给return出去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg3: Object.create()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj, finalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = finalObj || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = initalObj[i];</span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况</span></span><br><span class="line">        <span class="keyword">if</span>(prop === obj) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> prop === <span class="string">'object'</span>) &#123;</span><br><span class="line">            obj[i] = (prop.constructor === <span class="built_in">Array</span>) ? [] : <span class="built_in">Object</span>.create(prop);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[i] = prop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjn78pu0m0000t542975bls95" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjnhju0os0004ix42zz1hirim" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,6 +518,11 @@ When attempting to find your lost commits, first make sure you will not lose any
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -500,6 +553,10 @@ When attempting to find your lost commits, first make sure you will not lose any
       <ul>
         
           <li>
+            <a href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/13/浏览器缓存机制/">浏览器缓存机制</a>
           </li>
         
@@ -513,10 +570,6 @@ When attempting to find your lost commits, first make sure you will not lose any
         
           <li>
             <a href="/2018/07/22/js基础——语法/">JS基础——语法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/14/copyObj/">浅复制（浅拷贝）和深复制（深拷贝）</a>
           </li>
         
       </ul>
