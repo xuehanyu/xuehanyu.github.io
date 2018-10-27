@@ -66,6 +66,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js基础——语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/js基础——语法/" class="article-date">
+  <time datetime="2018-07-22T13:57:57.372Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/js基础——语法/">JS基础——语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="语法概述"><a href="#语法概述" class="headerlink" title="语法概述"></a>语法概述</h1><h2 id="下面是值的类型"><a href="#下面是值的类型" class="headerlink" title="下面是值的类型"></a>下面是值的类型</h2><h3 id="五种基本类型"><a href="#五种基本类型" class="headerlink" title="五种基本类型"></a>五种基本类型</h3><ul>
+<li>字符串<br>  ‘hello’<br>  “hello”</li>
+<li>数字<br>  1.234<br>  1234</li>
+<li>布尔值<br>  true<br>  false</li>
+<li>null</li>
+<li>undefined</li>
+</ul>
+<h3 id="复杂数据类型-Object"><a href="#复杂数据类型-Object" class="headerlink" title="复杂数据类型-Object"></a>复杂数据类型-Object</h3><h2 id="下面是几个基础语法的例子"><a href="#下面是几个基础语法的例子" class="headerlink" title="下面是几个基础语法的例子"></a>下面是几个基础语法的例子</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> x     <span class="comment">//  声明一个变量x </span></span><br><span class="line">x = <span class="number">3</span> + z   <span class="comment">//  给变量x赋值</span></span><br><span class="line"><span class="function"><span class="title">foo</span><span class="params">(a,b)</span></span>   <span class="comment">//  函数foo调用并传入形参a,b</span></span><br><span class="line">obj.baz(<span class="number">3</span>)   <span class="comment">//  对象的方法调用</span></span><br><span class="line"><span class="comment">// 条件语句</span></span><br><span class="line"><span class="keyword">if</span>（x===<span class="number">2</span>）&#123;  <span class="comment">// 判断x与2是否相等</span></span><br><span class="line">  x=<span class="number">234</span>  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  函数生命 , 变量为a,b</span></span><br><span class="line"><span class="function"><span class="title">function</span><span class="params">(a,b)</span></span>&#123;</span><br><span class="line">  return a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="表达式与语句"><a href="#表达式与语句" class="headerlink" title="表达式与语句"></a>表达式与语句</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>表达式将会产生一个值，它可以出现在任何需要值的地方，如<br>x + 10<br>foo（2，4）</p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句表示一种行为，如if语句、循环语句，一个程序基本上就是一个语句的序列。</p>
+<p><strong> 注：凡是js期望语句的地方都可以写表达式，这样的语句叫做表达式语句。反之则不然，不能在需要表达式的地方适用语句，如判断语句不能成为函数的参数 </strong></p>
+<h3 id="条件语句与条件表达式（某些情况下可以互通）"><a href="#条件语句与条件表达式（某些情况下可以互通）" class="headerlink" title="条件语句与条件表达式（某些情况下可以互通）"></a>条件语句与条件表达式（某些情况下可以互通）</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  使用条件语句</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">score</span>&gt;<span class="number">60</span>)&#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'及格'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'不及格'</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  如用条件表达式如下 （条件运算符或三元表达式）</span></span><br><span class="line">  <span class="built_in">str</span> = <span class="built_in">score</span> &gt; <span class="number">60</span> ? <span class="string">'及格'</span> : <span class="string">'不及格'</span></span><br></pre></td></tr></table></figure>
+<h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>ES5 提供了严格模式，在严格模式中，JavaScript代码会更加简洁，会有更少不安全的特性，更多的警告和更加合理的代码。普通模式（非严格模式），有时也被成为“宽松模式”。</p>
+<h2 id="启用严格模式"><a href="#启用严格模式" class="headerlink" title="启用严格模式"></a>启用严格模式</h2><p>可以在JavaScript文件或者script标签中的第一行加入以下代码来启动严格模式<br><code>&#39;use strict&#39;</code><br>或者可以在函数作用域中启用严格模式<br><code>function foo(){
+    &#39;use strict&#39;
+    ...
+  }</code></p>
+<h3 id="严格模式中变量必须背声明"><a href="#严格模式中变量必须背声明" class="headerlink" title="严格模式中变量必须背声明"></a>严格模式中变量必须背声明</h3><p>在严格模式中，所有变量必须被显示声明，在宽松模式中，未显示声明的变量将会创建一个全局变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 宽松模式</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    x = <span class="number">111</span></span><br><span class="line">  &#125;</span><br><span class="line">  foo()   <span class="comment">//  创造了一个全局变量x</span></span><br><span class="line">  <span class="built_in">console</span>.log(x)   <span class="comment">//  111;</span></span><br><span class="line"><span class="comment">//  严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta"> 'use strict'</span></span><br><span class="line">  x = <span class="number">111</span></span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//  抛出异常， ReferenceError: x is not defined</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="函数必须在作用域的顶部声明"><a href="#函数必须在作用域的顶部声明" class="headerlink" title="函数必须在作用域的顶部声明"></a>函数必须在作用域的顶部声明</h3><p>在严格模式中，所有的函数必须在顶级作用域声明，这意味着你不能在一个块内声明函数，如果这样做，将会抛出描述性错误SyntaxError；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// SyntaxError；</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">//  OK</span></span><br><span class="line">    <span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="无方法的函数中-this的值为undefined"><a href="#无方法的函数中-this的值为undefined" class="headerlink" title="无方法的函数中 this的值为undefined"></a>无方法的函数中 this的值为undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在宽松模式中</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)   <span class="comment">// true</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  在严格模式中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="literal">undefined</span>)   <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在严格模式中，设置或删除不可改变的属性会抛出异常"><a href="#在严格模式中，设置或删除不可改变的属性会抛出异常" class="headerlink" title="在严格模式中，设置或删除不可改变的属性会抛出异常"></a>在严格模式中，设置或删除不可改变的属性会抛出异常</h3><p>严格模式中，对属性的非法操作会抛出异常。如，对只读属性的设定操作会抛出一场，同样不可以删除不可配置的属性，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"hello"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  静默失败</span></span><br><span class="line">  <span class="built_in">console</span>.log(str.length)  <span class="comment">//  5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  抛出异常 TypeError: Cannot assign to read only property 'length' of string 'hello'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="在严格模式中，不合格标识符不能删除"><a href="#在严格模式中，不合格标识符不能删除" class="headerlink" title="在严格模式中，不合格标识符不能删除"></a>在严格模式中，不合格标识符不能删除</h3><p>在宽松模式中，可以用下面的方式删除全局变量foo<br>delete foo<br>在严格模式中，想要删除不合格标识符时将会抛出异常，但是可以通过以下方式进行删除全局变量<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete window<span class="selector-class">.foo</span> <span class="comment">//  浏览器</span></span><br><span class="line">delete global<span class="selector-class">.foo</span>  <span class="comment">//  Node.js</span></span><br><span class="line">delete this<span class="selector-class">.foo</span>  <span class="comment">//  全局作用域</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjnrgi7yu0007b742a3s1bkqm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-copyObj" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/14/copyObj/" class="article-date">
@@ -103,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjnhmf7990000ou42omo65qfs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjnrgi7ye0000b742zzi459bt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,6 +207,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/27/水平垂直居中/">水平垂直居中的几种方法</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
           </li>
         
@@ -162,10 +224,6 @@
         
           <li>
             <a href="/2018/07/29/js基础——原始值的包装对象/">JS基础—-原始值的包装对象</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/22/js基础——语法/">JS基础——语法</a>
           </li>
         
       </ul>
