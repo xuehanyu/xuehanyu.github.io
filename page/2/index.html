@@ -1,316 +1,439 @@
-<!DOCTYPE html>
-<html>
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
 <head>
-  <meta charset="utf-8">
-  
+	<title>🧚🏻‍菇凉的BLOG</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
 
-  
-  <title>🧚🏻‍菇凉的BLOG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="🧚🏻‍菇凉的BLOG">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="🧚🏻‍菇凉的BLOG">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="🧚🏻‍菇凉的BLOG">
-  
-    <link rel="alternate" href="/atom.xml" title="🧚🏻‍菇凉的BLOG" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">🧚🏻‍菇凉的BLOG</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/tags">Tags</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+<!-- header -->
+
+	<header id="header-bg-2">
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>主页</p>	
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/21/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-js基础——原始值的包装对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/js基础——原始值的包装对象/" class="article-date">
-  <time datetime="2018-07-29T14:52:32.909Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/js基础——原始值的包装对象/">JS基础—-原始值的包装对象</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>布尔值、数字和字符串这三种原始值都有对应的构造函数：Boolean、Number、string。</p>
-<h3 id="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"><a href="#作为构造函数，他们创建的对象和它们包装的原始值有很大的不同" class="headerlink" title="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"></a>作为构造函数，他们创建的对象和它们包装的原始值有很大的不同</h3><p>eg: 类型不同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>)   <span class="comment">//  object  </span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>) === <span class="string">'abc'</span>   <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="作为函数，它们会将值转换为对应的原始值"><a href="#作为函数，它们会将值转换为对应的原始值" class="headerlink" title="作为函数，它们会将值转换为对应的原始值"></a>作为函数，它们会将值转换为对应的原始值</h3><p>eg<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="number">1</span>)</span></span>      <span class="comment">//  1</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="原始值的包装与去包装"><a href="#原始值的包装与去包装" class="headerlink" title="原始值的包装与去包装"></a>原始值的包装与去包装</h2><p>在日常的开发实践中，我们经常对原始值 如字符串 、数值进行“.”的操作，调用其方法或属性，在调用的背后就发生了包装与去包装的过程。</p>
-<h3 id="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："><a href="#通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：" class="headerlink" title="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："></a>通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：</h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Boolean</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="type">String</span>(<span class="string">'123'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="type">Number</span>(<span class="number">134</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"><a href="#通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。" class="headerlink" title="通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"></a>通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。</h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Boolean</span>(<span class="literal">true</span>).valueOf()        <span class="comment">//true</span></span><br><span class="line"><span class="keyword">new</span> <span class="type">String</span>(<span class="string">'123'</span>).valueOf()       <span class="comment">// '123'</span></span><br><span class="line"><span class="keyword">new</span> <span class="type">Number</span>(<span class="number">134</span>).valueOf()       <span class="comment">// 134</span></span><br></pre></td></tr></table></figure>
-<p>注意：将包装对象转换为原始值时只能正确地提取数字和字符串，而布尔值不能。<br><code>Boolean(new Boolean(true))</code>    //  true</p>
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/29/js基础——原始值的包装对象/" data-id="cjpxoxl4m00042942a82vzzew" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
 
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		
+	<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+	<div class="am-u-md-12 am-u-sm-12">
 
-  
-    <article id="post-js基础——语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/22/js基础——语法/" class="article-date">
-  <time datetime="2018-07-22T13:57:57.372Z" itemprop="datePublished">2018-07-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/22/js基础——语法/">JS基础——语法</a>
-    </h1>
-  
+		
+			<article class="am-g blog-entry-article">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="语法概述"><a href="#语法概述" class="headerlink" title="语法概述"></a>语法概述</h1><h2 id="下面是值的类型"><a href="#下面是值的类型" class="headerlink" title="下面是值的类型"></a>下面是值的类型</h2><h3 id="五种基本类型"><a href="#五种基本类型" class="headerlink" title="五种基本类型"></a>五种基本类型</h3><ul>
-<li>字符串<br>  ‘hello’<br>  “hello”</li>
-<li>数字<br>  1.234<br>  1234</li>
-<li>布尔值<br>  true<br>  false</li>
-<li>null</li>
-<li>undefined</li>
-</ul>
-<h3 id="复杂数据类型-Object"><a href="#复杂数据类型-Object" class="headerlink" title="复杂数据类型-Object"></a>复杂数据类型-Object</h3><h2 id="下面是几个基础语法的例子"><a href="#下面是几个基础语法的例子" class="headerlink" title="下面是几个基础语法的例子"></a>下面是几个基础语法的例子</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> x     <span class="comment">//  声明一个变量x </span></span><br><span class="line">x = <span class="number">3</span> + z   <span class="comment">//  给变量x赋值</span></span><br><span class="line"><span class="function"><span class="title">foo</span><span class="params">(a,b)</span></span>   <span class="comment">//  函数foo调用并传入形参a,b</span></span><br><span class="line">obj.baz(<span class="number">3</span>)   <span class="comment">//  对象的方法调用</span></span><br><span class="line"><span class="comment">// 条件语句</span></span><br><span class="line"><span class="keyword">if</span>（x===<span class="number">2</span>）&#123;  <span class="comment">// 判断x与2是否相等</span></span><br><span class="line">  x=<span class="number">234</span>  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  函数生命 , 变量为a,b</span></span><br><span class="line"><span class="function"><span class="title">function</span><span class="params">(a,b)</span></span>&#123;</span><br><span class="line">  return a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="表达式与语句"><a href="#表达式与语句" class="headerlink" title="表达式与语句"></a>表达式与语句</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>表达式将会产生一个值，它可以出现在任何需要值的地方，如<br>x + 10<br>foo（2，4）</p>
-<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句表示一种行为，如if语句、循环语句，一个程序基本上就是一个语句的序列。</p>
-<p><strong> 注：凡是js期望语句的地方都可以写表达式，这样的语句叫做表达式语句。反之则不然，不能在需要表达式的地方适用语句，如判断语句不能成为函数的参数 </strong></p>
-<h3 id="条件语句与条件表达式（某些情况下可以互通）"><a href="#条件语句与条件表达式（某些情况下可以互通）" class="headerlink" title="条件语句与条件表达式（某些情况下可以互通）"></a>条件语句与条件表达式（某些情况下可以互通）</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  使用条件语句</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">score</span>&gt;<span class="number">60</span>)&#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'及格'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'不及格'</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  如用条件表达式如下 （条件运算符或三元表达式）</span></span><br><span class="line">  <span class="built_in">str</span> = <span class="built_in">score</span> &gt; <span class="number">60</span> ? <span class="string">'及格'</span> : <span class="string">'不及格'</span></span><br></pre></td></tr></table></figure>
-<h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>ES5 提供了严格模式，在严格模式中，JavaScript代码会更加简洁，会有更少不安全的特性，更多的警告和更加合理的代码。普通模式（非严格模式），有时也被成为“宽松模式”。</p>
-<h2 id="启用严格模式"><a href="#启用严格模式" class="headerlink" title="启用严格模式"></a>启用严格模式</h2><p>可以在JavaScript文件或者script标签中的第一行加入以下代码来启动严格模式<br><code>&#39;use strict&#39;</code><br>或者可以在函数作用域中启用严格模式<br><code>function foo(){
-    &#39;use strict&#39;
-    ...
-  }</code></p>
-<h3 id="严格模式中变量必须背声明"><a href="#严格模式中变量必须背声明" class="headerlink" title="严格模式中变量必须背声明"></a>严格模式中变量必须背声明</h3><p>在严格模式中，所有变量必须被显示声明，在宽松模式中，未显示声明的变量将会创建一个全局变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 宽松模式</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    x = <span class="number">111</span></span><br><span class="line">  &#125;</span><br><span class="line">  foo()   <span class="comment">//  创造了一个全局变量x</span></span><br><span class="line">  <span class="built_in">console</span>.log(x)   <span class="comment">//  111;</span></span><br><span class="line"><span class="comment">//  严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta"> 'use strict'</span></span><br><span class="line">  x = <span class="number">111</span></span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//  抛出异常， ReferenceError: x is not defined</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="函数必须在作用域的顶部声明"><a href="#函数必须在作用域的顶部声明" class="headerlink" title="函数必须在作用域的顶部声明"></a>函数必须在作用域的顶部声明</h3><p>在严格模式中，所有的函数必须在顶级作用域声明，这意味着你不能在一个块内声明函数，如果这样做，将会抛出描述性错误SyntaxError；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// SyntaxError；</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">//  OK</span></span><br><span class="line">    <span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="无方法的函数中-this的值为undefined"><a href="#无方法的函数中-this的值为undefined" class="headerlink" title="无方法的函数中 this的值为undefined"></a>无方法的函数中 this的值为undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在宽松模式中</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)   <span class="comment">// true</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  在严格模式中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="literal">undefined</span>)   <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在严格模式中，设置或删除不可改变的属性会抛出异常"><a href="#在严格模式中，设置或删除不可改变的属性会抛出异常" class="headerlink" title="在严格模式中，设置或删除不可改变的属性会抛出异常"></a>在严格模式中，设置或删除不可改变的属性会抛出异常</h3><p>严格模式中，对属性的非法操作会抛出异常。如，对只读属性的设定操作会抛出一场，同样不可以删除不可配置的属性，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"hello"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  静默失败</span></span><br><span class="line">  <span class="built_in">console</span>.log(str.length)  <span class="comment">//  5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  抛出异常 TypeError: Cannot assign to read only property 'length' of string 'hello'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="在严格模式中，不合格标识符不能删除"><a href="#在严格模式中，不合格标识符不能删除" class="headerlink" title="在严格模式中，不合格标识符不能删除"></a>在严格模式中，不合格标识符不能删除</h3><p>在宽松模式中，可以用下面的方式删除全局变量foo<br>delete foo<br>在严格模式中，想要删除不合格标识符时将会抛出异常，但是可以通过以下方式进行删除全局变量<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete window<span class="selector-class">.foo</span> <span class="comment">//  浏览器</span></span><br><span class="line">delete global<span class="selector-class">.foo</span>  <span class="comment">//  Node.js</span></span><br><span class="line">delete this<span class="selector-class">.foo</span>  <span class="comment">//  全局作用域</span></span><br></pre></td></tr></table></figure></p>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/js基础——语法/" data-id="cjpxoxl4o0005294264ypfzea" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/07/29/js基础——原始值的包装对象/" itemprop="url">
+	<time datetime="2018-07-29T14:52:32.909Z" itemprop="datePublished">
+  		2018-07-29
+  </time>
+</a>    
 
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/07/29/js基础——原始值的包装对象/" itemprop="url">		
+			JS基础—-原始值的包装对象		
+		</a>
+	
 
-  
-    <article id="post-copyObj" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/14/copyObj/" class="article-date">
-  <time datetime="2018-07-14T14:14:56.456Z" itemprop="datePublished">2018-07-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/copyObj/">浅复制（浅拷贝）和深复制（深拷贝）</a>
-    </h1>
-  
+					</span>
+					
+					
+						<p>
+							
+								布尔值、数字和字符串这三种原始值都有对应的构造函数：Boolean、Number、string。
+作为构造函数，他们创建的对象和它们包装的原始值有很大的不同eg: 类型不同12typeof new String('abc')   //  object  new String('abc') === 'abc'   // false
+作为函数，它们会将值转换为对应的原始值eg1Number(1)   	
+							  
+						</p> 
+					
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>JS中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>堆内存用于存放由new创建的对象，栈内存存放一些基本类型的变量和对象的引用变量。<br>浅拷贝：仅仅复制对象的引用，而不是对象本身；<br>深拷贝：把复制的对象所引用的全部对象都复制一遍</p>
-<h3 id="对于简单变量，内存小，直接复制而不会发生引用"><a href="#对于简单变量，内存小，直接复制而不会发生引用" class="headerlink" title="对于简单变量，内存小，直接复制而不会发生引用"></a>对于简单变量，内存小，直接复制而不会发生引用</h3><p>eg：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">123</span></span><br><span class="line">Var <span class="selector-tag">b</span> = a</span><br><span class="line"><span class="selector-tag">a</span> = <span class="number">123456</span></span><br><span class="line">Console.log(a).  <span class="comment">// 123456</span></span><br><span class="line">Console.log(b).  <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="引用只发生在对象身上，如数组、对象"><a href="#引用只发生在对象身上，如数组、对象" class="headerlink" title="引用只发生在对象身上，如数组、对象"></a>引用只发生在对象身上，如数组、对象</h3><p>（一）数组<br>浅拷贝eg：<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">Var arr2 = arr1 </span><br><span class="line">arr1.<span class="keyword">push</span>(<span class="number">4</span>)</span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4]</span></span><br><span class="line">arr2.<span class="keyword">push</span>(<span class="number">6</span>) </span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4,6]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的方法:<br>eg1:    Array.from<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Var arr3 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]</span><br><span class="line">var arr4 = Array.from(arr3)</span><br><span class="line">arr3.push(<span class="number">9</span>)</span><br><span class="line">Console.log(arr3).  <span class="comment">// [1,3,5,7,9]</span></span><br><span class="line">Console.log(arr4) <span class="comment">//[1,3,5,7]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg2: …运算符<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr5 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>]</span><br><span class="line">Var arr6 = […arr5]</span><br><span class="line">arr5.push(<span class="number">10</span>)</span><br><span class="line">Console.log(arr5).    <span class="comment">// [2,4,6,8,10]</span></span><br><span class="line">Console.log(arr6).     <span class="comment">// [2,4,6,8]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg3 : Array.map()<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr7 = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">Var arr8 = arr7.map(item =&gt; &#123; return item &#125;)</span><br><span class="line">arr7.push(<span class="number">8</span>)</span><br><span class="line">Console.log(arr7).  <span class="comment">// [2,3,5,6,8]</span></span><br><span class="line">Console.log(arr8).  <span class="comment">// [2,3,5,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg4: 通过循环来控制<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr9 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">var arr10 = []</span><br><span class="line">for(var I=<span class="number">0</span>;i&lt;arr9.length;i++)&#123; arr10[i] = arr9[i] &#125;</span><br><span class="line">arr9.push(<span class="number">6</span>)</span><br><span class="line">Console.log(arr9).     <span class="comment">// [1,2,3,4,5,6]</span></span><br><span class="line">Console.log(arr10).    <span class="comment">//. [1,2,3,4]</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h3 id="浅拷贝的实现："><a href="#浅拷贝的实现：" class="headerlink" title="浅拷贝的实现："></a>浅拷贝的实现：</h3><p>eg1: 直接赋值<br>eg2: Object.assign({}, target)<br>eg3: for in循环<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleClone</span><span class="params">(initalObj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        obj[i] = initalObj[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的实现：<br>eg1:JSON.parse<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        obj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(initalObj));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg2: 递归思想<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj1,obj2)&#123;</span><br><span class="line">  var obj2=obj2||&#123;&#125;; <span class="comment">//最初的时候给它一个初始值=它自己或者是一个json</span></span><br><span class="line">  <span class="keyword">for</span>(var <span class="built_in">name</span> <span class="built_in">in</span> obj1)&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">typeof</span> obj1[<span class="built_in">name</span>] === <span class="string">"object"</span>)&#123; <span class="comment">//先判断一下obj[name]是不是一个对象</span></span><br><span class="line">          obj2[<span class="built_in">name</span>]= (obj1[<span class="built_in">name</span>].constructor===Array)?[]:&#123;&#125;; <span class="comment">//我们让要复制的对象的name项=数组或者是json</span></span><br><span class="line">          deepClone(obj1[<span class="built_in">name</span>],obj2[<span class="built_in">name</span>]); <span class="comment">//然后来无限调用函数自己 递归思想</span></span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          obj2[<span class="built_in">name</span>]=obj1[<span class="built_in">name</span>];  <span class="comment">//如果不是对象，直接等于即可，不会发生引用。</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj2; <span class="comment">//然后在把复制好的对象给return出去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg3: Object.create()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj, finalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = finalObj || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = initalObj[i];</span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况</span></span><br><span class="line">        <span class="keyword">if</span>(prop === obj) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> prop === <span class="string">'object'</span>) &#123;</span><br><span class="line">            obj[i] = (prop.constructor === <span class="built_in">Array</span>) ? [] : <span class="built_in">Object</span>.create(prop);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[i] = prop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+					
+						<span class="continue-read">      	
+							<a href="/2018/07/29/js基础——原始值的包装对象/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/14/copyObj/" data-id="cjpxoxl4e00002942ia3tfh2k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/07/22/js基础——语法/" itemprop="url">
+	<time datetime="2018-07-22T13:57:57.372Z" itemprop="datePublished">
+  		2018-07-22
+  </time>
+</a>    
 
-  
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/07/22/js基础——语法/" itemprop="url">		
+			JS基础——语法		
+		</a>
+	
 
+					</span>
+					
+					
+						<p>
+							
+								语法概述下面是值的类型五种基本类型
+字符串  ‘hello’  “hello”
+数字  1.234  1234
+布尔值  true  false
+null
+undefined
 
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+复杂数据类型-Object下面是几个基础语法的例子123456789101112var x     //  声明一个变量x x = 3 + z   //  给变量x赋值foo(a,b)   //  函数foo调用并传入形	
+							  
+						</p> 
+					
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+					
+						<span class="continue-read">      	
+							<a href="/2018/07/22/js基础——语法/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
-  
-    
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
-    </div>
-  </div>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/07/14/copyObj/" itemprop="url">
+	<time datetime="2018-07-14T14:14:56.456Z" itemprop="datePublished">
+  		2018-07-14
+  </time>
+</a>    
 
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/07/14/copyObj/" itemprop="url">		
+			浅复制（浅拷贝）和深复制（深拷贝）		
+		</a>
+	
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/11/04/清除浮动/">清除浮动的几种方法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/27/水平垂直居中/">水平垂直居中的几种方法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/13/浏览器缓存机制/">浏览器缓存机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/09/git内部原理及最佳实践/">Git内部原理及“最佳”实践</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+					</span>
+					
+					
+						<p>
+							
+								相关概念JS中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。堆内存用于存放由new创建的对象，栈内存存放一些基本类型的变量和对象的引用变量。浅拷贝：仅仅复制对象的引用，而不是对象本身；深拷贝：把复制的对象所引用的全部对象都复制一遍
+对于简单变量，内存小，直接复制而不会发生引用eg：12345var a = 123Var b = aa = 123456Con	
+							  
+						</p> 
+					
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+					
+						<span class="continue-read">      	
+							<a href="/2018/07/14/copyObj/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		     
+
+		
+	<ul class="am-pagination">
+		
+			<li class="am-pagination-prev">
+				<a href="/">&laquo; 上一页 </a>
+			</li>
+		
+		
+		
+	</ul>
+    	
+	</div>
+</div>
+<!-- content end -->
+
+	<!--图文风格-->
+
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by John Doe. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
 
 
 
-  </div>
-</body>
-</html>
+
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+

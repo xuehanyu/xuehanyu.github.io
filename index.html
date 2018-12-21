@@ -1,603 +1,531 @@
-<!DOCTYPE html>
-<html>
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+
+	<!DOCTYPE html>
+	<html>
+		
+
 <head>
-  <meta charset="utf-8">
-  
+	<title>🧚🏻‍菇凉的BLOG</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+   	<!-- css -->
+	<link rel="stylesheet" href="/css/style.css">
 
-  
-  <title>🧚🏻‍菇凉的BLOG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="🧚🏻‍菇凉的BLOG">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="🧚🏻‍菇凉的BLOG">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="🧚🏻‍菇凉的BLOG">
-  
-    <link rel="alternate" href="/atom.xml" title="🧚🏻‍菇凉的BLOG" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+	<!-- favicon -->
+	<link href="/img/favicon.ico" rel="Shortcut Icon" type="image/ico">
+	
+	<!-- font-awesome -->
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+	<body>	
+		<!--Preloader-->
+<div id="preloader">
+	<div id="status">
+		<img alt="PRELOADER" src="/img/logo.png">
+	</div>
+</div>
+<!--Preloader end-->
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">🧚🏻‍菇凉的BLOG</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/tags">Tags</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+<!-- header -->
+
+	<header id="header-bg-2">
+
+	
+		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
+	
+	
+	<!-- motto or description -->
+		
+ 		<p class="motto"></p>
+	
+	
+	<!-- current page name or title -->
+	
+		
+		
+			
+			<p class=page-name>主页</p>	
+			
+		
+	
+	
+	<!-- others: such as change-bg, time... -->
+	<p class="page-name-other">
+		12/21/2018 
+		<style type="text/css">
+	header:after {
+		content: '';
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background: #222222;
+		opacity: .5;
+		z-index: -1;
+	}
+	
+	.change-header-bg{
+		font-style: normal;
+	}
+	.change-header-bg i{
+		text-align: center;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	@media(max-width:512px) {
+		.change-header-bg {
+			display: none;
+			visibility: hidden;
+		}
+	}
+	
+</style>
+
+<script type="text/javascript">
+	function changeHeaderBg(){
+		var random_bg = Math.floor(Math.random() * 109 + 1);
+		var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+		$("#header-bg-2").css("background-image", bg);
+	}
+</script>
+
+<span class="change-header-bg">
+	——&nbsp;<i  class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>	
+</span>
+	</p>		
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-清除浮动" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/04/清除浮动/" class="article-date">
-  <time datetime="2018-11-04T15:29:57.720Z" itemprop="datePublished">2018-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/04/清除浮动/">清除浮动的几种方法</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、父级div定义height；</p>
-<p>2、父级div定义overflow:hidden；</p>
-<p>3、父级div也一起浮动；</p>
-<p>4、常规的使用一个class；<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>::before, <span class="selector-class">.clearfix</span>::after &#123;</span><br><span class="line">  	    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">  	    <span class="attribute">display</span>: table;</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="selector-class">.clearfix</span>::after &#123;</span><br><span class="line">  	    <span class="attribute">clear</span>: both;</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  	    *zoom: <span class="number">1</span>;</span><br><span class="line">  	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>5、SASS编辑的时候，浮动元素的父级div定义伪类：after<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&amp;<span class="selector-pseudo">::after</span>,&amp;<span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  	    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">          <span class="attribute">visibility</span>: hidden;</span><br><span class="line">          <span class="attribute">display</span>: block;</span><br><span class="line">          <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">          <span class="attribute">clear</span>: both;</span><br><span class="line">  	&#125;</span><br></pre></td></tr></table></figure></p>
-<p>解析原理：<br>  1) display:block 使生成的元素以块级元素显示,占满剩余空间;<br>  2) height:0 避免生成内容破坏原有布局的高度。<br>  3) visibility:hidden 使生成的内容不可见，并允许可能被生成内容盖住的内容可以进行点击和交互;<br>  4）通过 content:”.”生成内容作为最后一个元素，至于content里面是点还是其他都是可以的，例如oocss里面就有<br>经典的 content:”.”,有些版本可能content 里面内容为空,一丝冰凉是不推荐这样做的,firefox直到7.0 content:”” 仍然会产生额外的空隙；<br>  5）zoom：1 触发IE hasLayout。</p>
-<p>  通过分析发现，除了clear：both用来闭合浮动的，其他代码无非都是为了隐藏掉content生成的内容，这也就是其他版本的<br>闭合浮动为什么会有font-size：0，line-height：0。</p>
-<p>6、结尾处加br标签clear:both</p>
+<!-- nav -->
+<div id="cd-nav">
+	<a href="#0" title="menu" class="cd-nav-trigger"><span></span></a>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/04/清除浮动/" data-id="cjpxoxl4q00072942s93vyubk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+	<nav id="cd-main-nav">
+		<ul>
+			
+      		<li class="fa fa-/">
+           		<a href="/" title="主页">主页</a>	
+      		</li>
+    		
+      		<li class="fa fa-/archives">
+           		<a href="/archives" title="归档">归档</a>	
+      		</li>
+    		
+      		<li class="fa fa-/categories">
+           		<a href="/categories" title="分类">分类</a>	
+      		</li>
+    		
+      		<li class="fa fa-/tags">
+           		<a href="/tags" title="标签">标签</a>	
+      		</li>
+    		
+      		<li class="fa fa-/about">
+           		<a href="/about" title="关于">关于</a>	
+      		</li>
+    		
+      		<li class="fa fa-/gallery">
+           		<a href="/gallery" title="相册">相册</a>	
+      		</li>
+    		
+    		
+        	
+		</ul>
+	</nav>
+</div>
 
+		<!--main-->
+		<main> 
+		<div class="page-container">
+		
+	<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed">
+	<div class="am-u-md-12 am-u-sm-12">
 
-  
-    <article id="post-水平垂直居中" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/27/水平垂直居中/" class="article-date">
-  <time datetime="2018-10-27T13:02:54.181Z" itemprop="datePublished">2018-10-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/27/水平垂直居中/">水平垂直居中的几种方法</a>
-    </h1>
-  
+		
+			<article class="am-g blog-entry-article">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、水平居中：给div设置一个宽度，然后 margin:0 auto;</p>
-<p>2、让绝对定位的div居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"> 	<span class="attribute">position</span>: absolute;</span><br><span class="line"> 	<span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line"> 	<span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line"> 	<span class="attribute">margin</span>: auto;</span><br><span class="line"> 	<span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"> 	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line"> 	<span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line"> 	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"> 	<span class="attribute">background-color</span>: pink;	<span class="comment">/* 方便看效果 */</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>3、让定位的div水平垂直居中(已知盒子宽高)<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"> 	<span class="attribute">position</span>: absolute;   <span class="comment">// relative也可以</span></span><br><span class="line"> 	<span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line"> 	<span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line"> 	<span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line"> 	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line"> 	<span class="attribute">margin-left</span>: -<span class="number">150px</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: -<span class="number">150px</span>;</span><br><span class="line"> 	<span class="attribute">background-color</span>: pink;	<span class="comment">/* 方便看效果 */</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>4、水平垂直居中（未知盒子宽高，利用trasform属性）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line"> 	<span class="attribute">position</span>: absolute;		<span class="comment">/* 相对定位或绝对定位均可 */</span></span><br><span class="line"> 	<span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line"> 	<span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line"> 	<span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line"> 	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line"> 	<span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</span><br><span class="line"> 	<span class="attribute">background-color</span>: pink;	 	<span class="comment">/* 方便看效果 */</span></span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>5、水平垂直居中（利用flex布局）<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line"> 	<span class="attribute">display</span>: flex;</span><br><span class="line"> 	<span class="attribute">align-items</span>: center; 		<span class="comment">/* 垂直居中 */</span></span><br><span class="line"> 	<span class="attribute">justify-content</span>: center;	<span class="comment">/* 水平居中 */</span></span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line"> 	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line"> 	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line"> 	<span class="attribute">background-color</span>: pink;		<span class="comment">/* 方便看效果 */</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/水平垂直居中/" data-id="cjpxoxl4k00022942nm2kficm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/11/04/清除浮动/" itemprop="url">
+	<time datetime="2018-11-04T15:29:57.720Z" itemprop="datePublished">
+  		2018-11-04
+  </time>
+</a>    
 
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/11/04/清除浮动/" itemprop="url">		
+			清除浮动的几种方法		
+		</a>
+	
 
-  
-    <article id="post-数组一些常用方法总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/20/数组一些常用方法总结/" class="article-date">
-  <time datetime="2018-10-20T14:38:36.832Z" itemprop="datePublished">2018-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
-    </h1>
-  
+					</span>
+					
+					
+						<p>
+							
+								1、父级div定义height；
+2、父级div定义overflow:hidden；
+3、父级div也一起浮动；
+4、常规的使用一个class；12345678910.clearfix::before, .clearfix::after &#123;  	    content: " ";  	    display: table;  	&#125;  	.clearfix::after &#12	
+							  
+						</p> 
+					
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>哈哈，交代一下背景哈，数组在我们编程中在常用不过了，可是总是使用一次忘一次，这个方法到底改不改变原数组？这个方法到底返回什么值？常常混淆，不过反复看了一些书籍以及在实际工作中的应用，让我对数组的方法也有了更深的理解，那就必须要记录一哈哈，以防上了年纪以后又忘记😄。</p>
-<p>数组，一个存储元素的线性集合，元素可以通过索引来任意存取。其常见使用方法如下：</p>
-<h3 id="栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）"><a href="#栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）" class="headerlink" title="栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）"></a>栈方法（数组也提供了一种让数组的行为类似于其他数据结构的方法，LIFO）</h3><ul>
-<li>push() – 可以接收任意类型的参数，把它们逐个添加到数组的末尾，返回值是数组的长度</li>
-<li>pop() – 从数组的末尾移除最后一项，减少数组的length， 返回删除的项<br>eg:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">console.log(arr.push(<span class="number">100</span>))    <span class="comment">// 7</span></span><br><span class="line">console.log(arr)             <span class="comment">//  [1, 2, 6, 8, 3, 6, 100]</span></span><br><span class="line">console.log(arr.pop())       <span class="comment">// 100</span></span><br><span class="line">console.log(arr)           <span class="comment">//[1, 2, 6, 8, 3, 6]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="队列方法-（FIFO）"><a href="#队列方法-（FIFO）" class="headerlink" title="队列方法 （FIFO）"></a>队列方法 （FIFO）</h3><ul>
-<li>unshift()  –  可以接受任务类型的参数，从数组的前端添加项，返回数组的length</li>
-<li>shift（）  –  从数组的前端取出项，返回删除的项<br>eg:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">console.log(arr.unshift(<span class="number">100</span>))    <span class="comment">// 7</span></span><br><span class="line">console.log(arr)             <span class="comment">//  [100,1, 2, 6, 8, 3, 6]</span></span><br><span class="line">console.log(arr.shift())       <span class="comment">// 100</span></span><br><span class="line">console.log(arr)           <span class="comment">//[1, 2, 6, 8, 3, 6]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ul>
-<li><p>concat() – 可以基于当前数组创建一个新的数组, 并不改变原属组,返回值新数组</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">const newarr = arr.concat(<span class="number">6</span>,[<span class="number">8</span>,<span class="number">9</span>])</span><br><span class="line">console.log(arr)   <span class="comment">//  [1,2,3]</span></span><br><span class="line">console.log(newarr)   <span class="comment">// [1,2,3,6,8,9]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>slice（） – 可以基于当前数组中的一个项和多个项创建一个新的数组，接受两个参数，起始位置，不改变原属组。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> newarr = arr.slice（<span class="number">1</span>）</span><br><span class="line">console.<span class="built_in">log</span>(arr)   <span class="comment">//  [1,2,3]</span></span><br><span class="line">console.<span class="built_in">log</span>(newarr)   <span class="comment">// [2,3]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>splice()  – 它的功能非常之强大，可以实现增、删、替换，改变原属组</p>
-<ul>
-<li><p>增加元素 – 可以向制定位置插入任意数量的项，提供三个参数：起始位置、0（要删除的项数）、要插入的项</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">console.log(arr)    <span class="comment">//[2, 3, 5, 4, 6, 8, 10]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   []   返回一个空数组</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除元素 – 可以删除任意数量的项，需要两个参数： 要删除第一项的位置，和要删除的项数</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">2</span>,<span class="number">2</span>)   <span class="comment">//  从2的位置，删除两项</span></span><br><span class="line">console.log(arr)   <span class="comment">//    [1,3,9]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   [5,7]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>替换元素  – 可以替换任意位置的元素，且同时删除任意数量的项，需要三个参数： 起始位置、要删除的项数和要插入的任意数量的项</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const arr = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">const newarr = arr.splice(<span class="number">2</span>,<span class="number">2</span>,<span class="number">100</span>,<span class="number">101</span>,<span class="number">102</span>)   <span class="comment">//  从2的位置，删除两项,插入三项</span></span><br><span class="line">console.log(arr)   <span class="comment">//    [1,3,100,101,102，9]</span></span><br><span class="line">console.log(newarr)   <span class="comment">//   [5,7]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
-<li>indexOf()  </li>
-<li>lastIndexOf()</li>
-</ul>
-<p>这两个方法都接受两个参数 ： 要查找的项、和查找的起点位置的索引，不同的是indexOf从数组的开头开始向后查找，lastIndexOf从数组的末尾向前查找，查到则返回相应的位置，没查到则返回-1.</p>
-<h3 id="迭代方法-–-ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array"><a href="#迭代方法-–-ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array" class="headerlink" title="迭代方法 – ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array"></a>迭代方法 – ECMAScript5为数组定义了5个迭代方法，每个方法接受两个参数：要在每一项运行的函数和该函数的作用域对象–影响this的值（可选），而传入这些方法的接受三个参数，value，index，array</h3><ul>
-<li><p>every() – 对数组每一项都运行给定的函数，如果对每一项都返回true，则返回true</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.every((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">//  false</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>some() – 对数组每一项都运行给定的函数，如果有一项返回true，则返回true</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.some((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">//  true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>filter() – 对数组每一项都运行给定的函数，返回反函数会返回true的项组成的数组</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.filter((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item&gt;<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">// [3,4,5,6,4,3]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>forEach() – 对数组中的每一项运行给定函数，该方法没有返回值</p>
-</li>
-<li><p>map() – 对数组中每一项运行给定的函数，返回每次函数调用过的结果组成的数组</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">var result = nums.map((item,<span class="type">key</span>,array)=&gt;&#123;</span><br><span class="line">    return item*<span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line">console.log(result)   <span class="comment">// [2,4,6,8,10,12,8,6,4,2]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>以上方法都不会改变数组中包含的值</strong></p>
-<h3 id="归并方法-–-ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array-这个函数返回的任何值都会作为第一个参数自动传给下一项。"><a href="#归并方法-–-ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array-这个函数返回的任何值都会作为第一个参数自动传给下一项。" class="headerlink" title="归并方法 – ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array,这个函数返回的任何值都会作为第一个参数自动传给下一项。"></a>归并方法 – ECMAScript新增了两个归并数组的方法，这两个方法会迭代数组的所有的项，返回的最终的值。接受两个参数，一个函数，一个初始值。传入的函数接受四个参数：prev、cur、index、array,这个函数返回的任何值都会作为第一个参数自动传给下一项。</h3><ul>
-<li>reduce() – 可以执行求数组中所有值之和的操作<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="built_in">values</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="built_in">var</span> <span class="built_in">sum</span> = <span class="built_in">values</span>.reduce((prev,cur,index,<span class="built_in">array</span>)=&gt;&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(prev,cur,index)</span><br><span class="line">    <span class="built_in">return</span> prev+cur</span><br><span class="line">&#125;)</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+					
+						<span class="continue-read">      	
+							<a href="/2018/11/04/清除浮动/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/数组一些常用方法总结/" data-id="cjpxoxl4p00062942tjbnrhtb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/10/27/水平垂直居中/" itemprop="url">
+	<time datetime="2018-10-27T13:02:54.181Z" itemprop="datePublished">
+  		2018-10-27
+  </time>
+</a>    
 
-  
-    <article id="post-浏览器缓存机制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/13/浏览器缓存机制/" class="article-date">
-  <time datetime="2018-10-13T07:20:11.774Z" itemprop="datePublished">2018-10-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/13/浏览器缓存机制/">浏览器缓存机制</a>
-    </h1>
-  
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/10/27/水平垂直居中/" itemprop="url">		
+			水平垂直居中的几种方法		
+		</a>
+	
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>浏览器的缓存机制也就是我们常说的HTTP缓存机制，其机制是根据HTTP报文的缓存标识进行的，HTTP报文分为两种：HTTP请求报文和HTTP响应报文</p>
-<h2 id="HTTP请求（Request）报文"><a href="#HTTP请求（Request）报文" class="headerlink" title="HTTP请求（Request）报文"></a>HTTP请求（Request）报文</h2><p>报文格式为：请求行 - HTTP头（通用信息头、请求头、实体头）- 请求报文主体（只有 post请求才有请求体）如图：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/request.png" alt="请求报文"></p>
-<h2 id="HTTP相应（Response）报文"><a href="#HTTP相应（Response）报文" class="headerlink" title="HTTP相应（Response）报文"></a>HTTP相应（Response）报文</h2><p>报文格式为：状态行 - HTTP头（通用信息头、响应头、实体头）- 响应报文主体，如下图：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/response.png" alt="响应报文"></p>
-<p>通用信息头指的是请求和响应报文都支持的头域，分别为Cache-Control、Connection、Date、Pragma、Transfer-Encoding、Upgrade、Via；实体头则是实体信息的实体头域Allow、Content-Base、Content-Encoding、Content-Language、Content-Length、Content-Location、Content-MD5、Content-Range、Content-Type、Etag、Expires、Last-Modified、extension-header。这里只是为了方便理解，将通用信息头，响应头/请求头，实体头都归为了HTTP头。</p>
-<h1 id="缓存过程"><a href="#缓存过程" class="headerlink" title="缓存过程"></a>缓存过程</h1><p>浏览器与服务器通信的方式为应答模式，浏览器发起HTTP请求 - 服务器响应请求。那么浏览器第一次向服务器发起该请求后拿到请求结果，会根据响应报文中HTTP头的缓存标识，决定是否缓存结果，是则将请求结果和缓存标识存入浏览器缓存中，简单过程如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/first.png" alt="第一次请求"></p>
-<ul>
-<li>浏览器每次发起请求，都会现在浏览器缓存中查找该请求的结果以及缓存标识</li>
-<li>浏览器每次拿到请求结果都会将该结果和缓存标识存入浏览器缓存中<br>以上两点则是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取。这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，强制缓存和协商缓存</li>
-</ul>
-<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程，强制缓存主要有三种</p>
-<ul>
-<li>不存在该缓存结果和标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致），如下图：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/1.png" alt="第一次请求"></li>
-<li>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存，如图：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/2.png" alt="第一次请求"></li>
-<li>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果，如图：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/3.png" alt="第一次请求"></li>
-</ul>
-<p>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP相应报文和HTTP头和请求结果一起返回给浏览器，控制强制缓存的字段分别是Expires和Cache-Control，其中Cache-Control的优先级更高。    </p>
-<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>Expires是HTTP/1.0控制网页缓存的字段，其值为服务器返回该请求结果缓存的到期时间，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果</p>
-<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>主要取值：</p>
-<ul>
-<li><p>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</p>
-</li>
-<li><p>private：所有内容只有客户端可以缓存，Cache-Control的默认取值</p>
-</li>
-<li><p>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</p>
-</li>
-<li><p>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</p>
-</li>
-<li><p>max-age=xxx (xxx is numeric)：缓存内容将在xxx秒后失效</p>
-<p><strong>注意：from memory cache 和form disk cache标识缓存存放的位置，from memory cache代表使用内存中的缓存，而form disk cache代表使用硬盘中的缓存</strong></p>
-</li>
-</ul>
-<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程，主要由一下两种情况</p>
-<ul>
-<li><p>协商缓存生效，返回304，如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/304.png" alt="第一次请求"></p>
-</li>
-<li><p>协商缓存失效，返回200和请求结果，如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/200.png" alt="第一次请求"></p>
-</li>
-</ul>
-<p>同样协商缓存的标识也是在响应报文的HTTP头和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：Last-Modified / If-Modified-Since和Etag / If-None-Match，其中Etag / If-None-Match的优先级比Last-Modified / If-Modified-Since高。</p>
-<h3 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified / If-Modified-Since"></a>Last-Modified / If-Modified-Since</h3><p>Last-Modified是服务器相应请求时，返回该资源文件在服务器最后被修改的时间，<br>If-Modified-Since则是客户端再次发起请求时，携带上次请求返回的Last-Modified值，通过此字段高速服务器该资源上次请求返回的最后被修改的时间，服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据该字段的值与该资源在服务器的最后被修改的时间做对比，若服务器的资源最后被修改的时间大If-Modified-Since的字段值，则重新返回资源，状态码200，否则返回304，代表资源无更新，可以继续使用缓存文件</p>
-<h3 id="Etag-If-None-Match"><a href="#Etag-If-None-Match" class="headerlink" title="Etag / If-None-Match"></a>Etag / If-None-Match</h3><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识（由服务器生成）<br>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一表示Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码200</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>强制缓存优先于协商缓存进行，若强制缓存（Expires和Cache-Control）生效则直接使用缓存，若不生效则进行协商缓存（Last-Modified / If-Modified-Since），协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，重新获取请求结果，在存入浏览器缓存中，生效则返回304，继续使用返回，主要过程如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/main.png" alt="第一次请求"></p>
+					</span>
+					
+					
+						<p>
+							
+								1、水平居中：给div设置一个宽度，然后 margin:0 auto;
+2、让绝对定位的div居中1234567891011div &#123; 	position: absolute; 	width: 300px; 	height: 300px; 	margin: auto; 	top: 0; 	left: 0; 	bottom: 0; 	right: 0; 	background-color:	
+							  
+						</p> 
+					
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/13/浏览器缓存机制/" data-id="cjpxoxl4r00082942e4z377j0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+					
+						<span class="continue-read">      	
+							<a href="/2018/10/27/水平垂直居中/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
-  
-    <article id="post-git内部原理及最佳实践" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/09/git内部原理及最佳实践/" class="article-date">
-  <time datetime="2018-08-09T10:10:13.798Z" itemprop="datePublished">2018-08-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/09/git内部原理及最佳实践/">Git内部原理及“最佳”实践</a>
-    </h1>
-  
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/10/20/数组一些常用方法总结/" itemprop="url">
+	<time datetime="2018-10-20T14:38:36.832Z" itemprop="datePublished">
+  		2018-10-20
+  </time>
+</a>    
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git内部原理"><a href="#Git内部原理" class="headerlink" title="Git内部原理"></a>Git内部原理</h1><h3 id="Git基础"><a href="#Git基础" class="headerlink" title="Git基础"></a>Git基础</h3><ul>
-<li>直接记录快照，而非差异比较<br>  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个快照流。</li>
-</ul>
-<p><img src="http://pbv0yiork.bkt.clouddn.com/image/git.png" alt="git"></p>
-<ul>
-<li><p>Git保证完整性<br>  Git中所有数据在存储前都计算校验和，然后以校验和来引用，Git 用以计算校验和的机制叫做 SHA-1散列（hash，哈希）。这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：24b9da6552252987aa493b52f8696cd6d3b00373。实际上，Git数据库中保存信息都是以文件内容的哈希值来索引，而不是文件名。<br>  如何计算？<br>  Git在计算校验和时，首先会创建一个头部信息然后和原始数据拼接起来。从而计算出一个40位的hash值。</p>
-  <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">header</span> = <span class="string">"&lt;type&gt; "</span> + content.length + <span class="string">"\0"</span></span><br><span class="line"><span class="attr">hash</span> = sha1(header + content)</span><br></pre></td></tr></table></figure>
-<p>  <strong>Git十分智能，你只需要提供SHA-1的前几个字符就可以获得对应的那次提交，当然你提供的SHA-1字符数量不得少于4个，并没有歧义–也就是说，当前仓库中只有一个对象以这段SHA-1开头，默认使用七个字符，通常8到10个字符就已经足够在一个项目中避免SHA-1歧义。</strong></p>
-</li>
-<li><p>三种状态<br>  工作目录下的每一个文件不外乎有两种状态：已跟踪（tracked）或未跟踪（Untracked）。<br>  已跟踪的文件是指那些被纳入了版本控制的文件，在上次快照中有它们的记录，工作目录中除以跟踪文件以外的所有其他文件都属于未跟踪文件，它们既不存在于上次快照记录中，也没有放入暂存区。<br>  已提交（committed）、已修改（modified）和已暂存（staged），已提交表示数据已经安全的保存在本地数据库中。已修改表示修改了文件，但还没保存到数据库中。 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。<br>  由此引入三区：Git仓库、工作目录以及暂存区。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/work.png" alt="git"><br>Git仓库: 是Git用来保存项目元数据和对象数据库的地方（.git）。</p>
-<ul>
-<li><p>当在一个新目录或已有目录执行 git init 时，Git 会创建一个.git目录。 这个目录包含了几乎所有Git存储和操作的对象。该目录结构如下所示：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/list.png" alt="git"></p>
-<ul>
-<li>config项目特有的配置选项</li>
-<li>description文件仅供 GitWeb 程序使用</li>
-<li>hooks包含客户端或服务端的钩子脚本</li>
-<li>info包含一个全局性排除文件</li>
-<li>HEAD指示目前被检出的分支(特殊的指针)</li>
-<li>objects存储所有数据内容</li>
-<li><p>refs存储指向分支的提交对象的指针</p>
-<p><strong>index                   保存暂存区信息</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>工作目录: 是对项目的某个版本独立提取出来的内容。<br>暂存区域是一个文件，保存了下次将提交的文件列表。一般在Git仓库目录中，有时也被称作“索引”。<br>基本的git工作流程:<br>    在工作目录中修改文件<br>    暂存文件，将文件快照放入暂存区域<br>    提交更新，找到暂存区域的文件，将快照永久性存储到Git仓库目录</p>
-<ul>
-<li>三棵树<br>树 – 文件的集合，而不是特定的数据结构<br>Git作为一个系统，是以它的一般操作来管理并操纵这三颗树的：<ul>
-<li>HEAD ， 上一次提交的快照，下一次提交的父节点<br>HEAD，是当前分支引用的指针，它总是指向该分支的最后一次提交，这表示HEAD将是下次提交的父节点</li>
-<li>Index， 预期的下次提交快照<br>Git将上一次检出到工作目录中的所有文件填充到索引区，他们看起来就像最初被检出时的样子，之后你会将其中一些文件替换为新版本，接着通过git commit 将它们转换为树来用作新的提交。</li>
-<li>Working Directory ， 工作区<br>前两颗树以一种高效但并不直观的方式，将它们的内容存储在.git文件夹中。工作目录会将它们解包为实际的文件以便编辑。<br><strong>Git主要的目的是通过操纵三棵树来以更加连续的状态记录项目的快照</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="git-是如何运转的？"><a href="#git-是如何运转的？" class="headerlink" title="git 是如何运转的？"></a>git 是如何运转的？</h3><ul>
-<li><p>初始化git 仓库（git init），创建一个文件file.txt，我们称其为该文件的v1版本<br>git为我们自动创建第一个分之master，以及指向master的一个指针HEAD<br><img src="http://pbv0yiork.bkt.clouddn.com/init.png" alt="git"><br>底层命令实现</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">'version 1'</span> &gt; test<span class="selector-class">.txt</span> </span><br><span class="line">git hash-<span class="selector-tag">object</span> -w test<span class="selector-class">.txt</span> </span><br><span class="line"><span class="number">83</span>baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
-<p>此时，只有工作目录有内容</p>
-</li>
-<li><p>git add – 跟踪文件，获取工作目录中的内容，并将其复制到索引中<br><img src="http://pbv0yiork.bkt.clouddn.com/image/add.png" alt="git"><br>底层命令实现</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-index --<span class="keyword">add</span> --cacheinfo <span class="number">100644</span> <span class="number">83</span>baae<span class="number">61804e65</span><span class="keyword">cc</span><span class="number">73</span>a<span class="number">7201</span>a<span class="number">7252750</span><span class="keyword">c</span><span class="number">76066</span>a<span class="number">30</span> test.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>git commit<br>首先，他会移除索引中的内容并将它保存一个永久的快照，<br>然后，创建一个指向该快照的提交对象，最后更新master来指向本次提交<br><img src="http://pbv0yiork.bkt.clouddn.com/image/commit.png" alt="git"></p>
- <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 'first commit' <span class="string">| git commit-tree d8329f 	</span></span><br><span class="line">fdf4fc3344e67ab068f836878b6c4951e3b15f3d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对文件修改，然后提交它，会经历同样的过程<br>首先，编辑文件，版本为v2<br><img src="http://pbv0yiork.bkt.clouddn.com/image/edit.png" alt="git"><br>运行 git status， 显示changes not staged for commit – 因为索引区与工作目录之间存在不同，<br>接着，运行git add将其暂存到索引中<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editadd.png" alt="git"><br>由于索引和HEAD不同，若运行git status 会看到， changes to be committed  — 下一次提交与上一次提交不同<br>最后，git commit 完成<br><img src="http://pbv0yiork.bkt.clouddn.com/image/editcommit.png" alt="git"><br>切换分支或克隆的过程也类似，当检出一个分支时，它会修改HEAD指向新的分支引用，将索引填充为该次提交的快照，然后将索引的内容复制到工作目录中。</p>
-</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>  每次我们运行git add 、 git commit 时，Git所做的实质工作：</p>
-<ul>
-<li>将被改写的文件保存为数据对象</li>
-<li>更新暂存区，记录树对象（通常，Git根据某一时刻暂存区所表示的状态创建并记录一个对应的树对象，如此重复便可依次记录（某个时间段内）一系列的树对象）</li>
-<li>最后创建一个提交对象，指明了顶层树对象（代表当前项目快照）和父提交对象（上一次的提交对象）。 </li>
-</ul>
-<h3 id="找不同-–-reset-和-chekcout"><a href="#找不同-–-reset-和-chekcout" class="headerlink" title="找不同 –  reset 和 chekcout"></a>找不同 –  reset 和 chekcout</h3><h2 id="reset-做了什么？"><a href="#reset-做了什么？" class="headerlink" title="reset 做了什么？"></a>reset 做了什么？</h2><p>  为了演示下面例子，再次修改了file.txt文件并第三次提交它。现在历史看起来像：<br>    <img src="http://pbv0yiork.bkt.clouddn.com/image/reset2.png" alt="git"></p>
-<ul>
-<li><p>移动HEAD<br>  reset做的第一件事就是移动HEAD的指向，reset移动HEAD以及其指向的分支<br><img src="http://pbv0yiork.bkt.clouddn.com/image/soft.png" alt="git"><br><strong>它本质上是撤销上一次git commit命令</strong><br>当你运行commit时，git会创建一个新的提交，并移动HEAD所指向的分之来使其指向该提交。当你将它reset回HEAD～（HEAD的父节点）时，其实就是把该分支移动回原来的位置，而不会改变索引和工作目录</p>
-<ul>
-<li>更新索引（–mixed）<br>reset会用HEAD指向的当前快照的内容来更新索引<br><img src="http://pbv0yiork.bkt.clouddn.com/image/mixed.png" alt="git"><br>如果指定–mixed 选项，reset将会在这时停止，这也是默认行为，如果没有指定任何选项（在本例中 git reset HEAD～），这就是命令将会停止的地方。<br>由图可看出，它依然回撤销上一次的提交，还会取消暂存所有的东西，于是，我们回滚倒了所有git add 和git commit 的命令执行之前。</li>
-<li>更新所有工作目录 （–hard）<br>reset要做的第三件事就是让工作目录看起来像索引，如果使用–hard选项，它将会继续这一步。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/hard.png" alt="git"><br>⚠️注意：–hard标记时reset命令唯一危险用法，它也是Git会真正地销毁数据的仅有的几个操作之一。在这种特殊的情况下，Git数据库中的一个提交内还留有该文件的v3版本，我们可以通过reflog来找回它。但是若该文件还未提交，Git仍会覆盖它从而导致无法恢复</li>
-<li>总结<br>reset命令会以特定的顺序重写这三棵树，在你指定一下选项时会停止；<ul>
-<li>移动HEAD分支的指向（若指定 –soft，则到此停止）</li>
-<li>使索引看起来像HEAD（若未指定 –hard，则到此停止）</li>
-<li>使工作目录看起来像索引<h2 id="checkout-做了什么？"><a href="#checkout-做了什么？" class="headerlink" title="checkout 做了什么？"></a>checkout 做了什么？</h2></li>
-</ul>
-</li>
-<li>git checkout – <file>  撤销修改，用暂存区的某个文件来覆盖工作区，经常用于撤销一些修改<br>实质 ： git checkout – <file> 是用来是工作区回到上次操作git add时的样子</file></file></li>
-<li>git chekout HEAD <file> 是用版本库同时覆盖暂存区和工作区，用来彻底撤销一个修改，这个命令更加危险，因为它会同时修改工作区和暂存取，且无法撤销</file></li>
-</ul>
-<h2 id="reset-和-checkout的区别"><a href="#reset-和-checkout的区别" class="headerlink" title="reset 和 checkout的区别"></a>reset 和 checkout的区别</h2><ul>
-<li>可以实现相同的功能，比如还原本地文件，但是reset更强调“撤销”，比如撤销暂存区、撤销暂存区和本地，而checkout更强调“替换”，比如用暂存区内容替换本地，用head指向目录替换暂存区和本地。</li>
-<li>reset会移动HEAD分支的指向，而checkout只会移动HEAD自身来指向另一个分支。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/reset.png" alt="git"></li>
-</ul>
-</li>
-</ul>
-<h3 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h3><p>Git的分支，其实本质上仅仅是指向提交对象的可变指针。git的默认分支是master（git init时默认创建），再多次提交操作之后，你其实已经有一个指向最后那个提交对象的master分支。它会在每次提交的操作中自动 向前移动。</p>
-<ul>
-<li>假设，Git仓库目前的分支及提交历史如下：<br><img src="http://pbv0yiork.bkt.clouddn.com/image/branch.png" alt="git"></li>
-<li><p>如何创建分支？<br>eg： 创建test分支（创建了一个可以移动的新的指针）</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="keyword">test</span>  <span class="comment">//  这会在当前提交对象上创建一个指针</span></span><br></pre></td></tr></table></figure>
-<p>底层命令实现：(.git/refs)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">update</span>-<span class="keyword">ref</span> refs/<span class="keyword">head</span>/<span class="keyword">test</span> <span class="keyword">sha</span><span class="number">-1</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch1.png" alt="git"><br>由图可看到，有两个指向相同提交历史的分支，那么Git又是怎么知道当前在哪一个分支上呢？ – HEAD特殊指针<br>HEAD是当前分支引用的指针，它总是指向该分支上的最后一次提交，这也标示HEAD将时下一次提交的父节点。通常，理解HEAD最简单的方式，就是将它看做上一次提交的快照。<br>执行git branch test 仅仅创建了新分支，并不会自动切换倒新分支中去。<br><img src="http://pbv0yiork.bkt.clouddn.com/image/branch2.png" alt="git"></p>
-<p><strong>当运行类似于 git branch (branchname) 这样的命令时，Git 实际上会运行 update-ref 命令，取得当前所在分支最新提交对应的 SHA-1 值，并将其加入你想要创建的任何新引用中。</strong></p>
-</li>
-<li><p>切换分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="built_in">test</span>    // 这样，HEAD就指向了<span class="built_in">test</span>分支</span><br></pre></td></tr></table></figure>
-<p><img src="http://pbv0yiork.bkt.clouddn.com/image/branch3.png" alt="git"></p>
-<ul>
-<li>切换分支，实则是将HEAD指向所要切换的分支<br>这个命令做的三件事：<br>  将HEAD指向对应分支的最后一次commit<br>  将HEAD指向的commit里所有文件的snapshot替换掉Index区域里原来的内容（将工作目录恢复成master分支所指向的快照内容）<br>  将Index区域里的内容填充到Working Directory里<ul>
-<li>底层实现<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git symbolic-<span class="keyword">ref</span> HEAD refs/heads/test</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="Git最佳实践"><a href="#Git最佳实践" class="headerlink" title="Git最佳实践"></a>Git最佳实践</h1><h3 id="git-flow-开发流程"><a href="#git-flow-开发流程" class="headerlink" title="git flow 开发流程"></a>git flow 开发流程</h3><p><img src="http://pbv0yiork.bkt.clouddn.com/image/flow.png" alt="git"></p>
-<ul>
-<li>Git flow 使用原则<br>  Master分支是线上稳定分支，Release通常用作测试分支，Develop分支是开发应用的主分支<br>  所有的功能开发都在Feature分支进行，然后合并到Develop分支<br>  Release分支发布后出现问题，直接在Release分支修改，避免Develop分支代码污染</li>
-</ul>
-<h3 id="规范git的使用"><a href="#规范git的使用" class="headerlink" title="规范git的使用"></a>规范git的使用</h3><ul>
-<li>尽早并频繁地提交改动<br>经常性地提交改动可以确保不会出现特别庞大的提交，同时也可以比较精准地对应到所需要的改动上。此外，通过频繁地提交也可以比较快速地和其他开发人员来共享你的改动。同样也会避免在整合代码时出现过多的合并冲突。相反的，非常庞大的提交会加大整合代码时出现冲突的风险，解决这些冲突也会非常复杂。</li>
-<li>提交对应改动<br>一次提交要包括一个相关改动。例如，对于两个错误的修复应该进行两次不同的提交。精简的提交可以让其他的开发团队人员更简单地明白其改动的用义。如果其中一次提交的改动出现了问题，也可以方便地回滚到改动之前的状态。借助暂存功能来标记相关的改动文件，Git 可以为你打造出非常精准的提交。</li>
-<li>提交前测试那些改动<br>不要理所当然地认为自己完成的改动都是正确的。所有的改动一定要通过彻底地测试才表示它真正地被完成了。尽管这些改动可能仅仅是提交到了你的本地仓库中，只有你自己才能看到，但完整的测试同样是非常重要的，因为这些代码可能之后会被推送和共享到远程给其他的开发人员。</li>
-<li><p>Don’t panic<br>只要你已经完成了你的工作（或者在许多情况下甚至已经添加了它git add），你的工作将不会丢失至少两周，运行命令手动清除它</p>
-<!-- As long as you have committed your work (or in many cases even added it with git add) your work will not be lost for at least two weeks unless you really work at it (run commands that manually purge it).
-When attempting to find your lost commits, first make sure you will not lose any current work. You should commit or stash your current work before performing any recovery efforts that might destroy your current work and perhaps take backups of it (see Backups below). After finding the commits you can reset, rebase, cherry-pick, merge, or otherwise do what is necessary to get the commit history and work tree you desire. -->
-<ul>
-<li><p>有三个地方可以隐藏“丢失”的变化</p>
-<ul>
-<li>reflog<br>Git reflog 可以查看所有分支的所有操作记录（包括提交、回退、已删除的提交操作记录等)</li>
-<li>lost＆found（git fsck –unreachable）<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck <span class="comment">--lost-found</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>通过该命令你可以看到丢掉的提交。你可以通过运行 git show [commit_hash] 查看提交之后的改变或者运行git merge [commit_hash] 来恢复到之前的提交。<br>git fsck 相对reflog是有优势的。比方说你删除一个远程的分支然后关闭仓库。 用fsck 你可以搜索和恢复已删除的远程分支</p>
-<ul>
-<li><p>stashed（git stash list）<br>你正在修改某个bug或者某个特性，又突然被要求展示你的工作。而你现在所做的工作还不足以提交，这个阶段你还无法进行展示（不能回到更改之前）。在这种情况下， git stash可以帮助你。stash在本质上会取走所有的变更并存储它们为以备将来使用。stash你的变更，你只需简单地运行下面的命令</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git stash</span></span><br></pre></td></tr></table></figure>
-<p>希望检查stash列表，你可以运行下面的命令：</p>
-  <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
-<p>  如果你想要解除stash并且恢复未提交的变更，你可以进行apply stash:</p>
-  <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="built_in">apply</span></span><br></pre></td></tr></table></figure>
-<p>  每个stash都有一个标识符，一个唯一的号码,如果你只想留有余地进行apply stash，你应该给apply添加特定的标识符：</p>
-  <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="built_in">apply</span> stash@&#123;<span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>高质量的提交注释<br><a href="https://segmentfault.com/a/1190000009048911" target="_blank" rel="noopener">超链接名</a></p>
-</li>
-<li><p>不要提交不完整的改动<br>虽然原则上来说不要提交一些还没有完成的改动，但是对于一个非常庞大的新功能来说，也并不意味着你必须整体完成这个功能后才可以提交。恰恰相反，你必须把那些改动正确地分割成一些有意义的逻辑模块来进行频繁地提交。如果你仅仅是因为急着想要下班，或者是想要得到一个干净的工作副本（比如想要切换到另一个分支上），你可以利用 Git 所提供的储藏（Stash）功能来解决这些问题。切记不要把那些不完整的改动提交到仓库中</p>
-</li>
-<li><p>Release tagging  – 打tag</p>
-</li>
-<li>使用有用的工具<br>强烈安利sourceTree</li>
-</ul>
-<h3 id="推荐git相关内容"><a href="#推荐git相关内容" class="headerlink" title="推荐git相关内容"></a>推荐git相关内容</h3><p><a href="https://bingohuang.gitbooks.io/progit2/content/" target="_blank" rel="noopener">Pro Git</a><br><a href="http://sethrobertson.github.io/GitBestPractices/" target="_blank" rel="noopener">Git 最佳实践</a></p>
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/10/20/数组一些常用方法总结/" itemprop="url">		
+			数组一些常用方法总结		
+		</a>
+	
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/09/git内部原理及最佳实践/" data-id="cjpxoxl5800092942vd4q5vgi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
+					</span>
+					
+					
+						<p>
+							
+								哈哈，交代一下背景哈，数组在我们编程中在常用不过了，可是总是使用一次忘一次，这个方法到底改不改变原数组？这个方法到底返回什么值？常常混淆，不过反复看了一些书籍以及在实际工作中的应用，让我对数组的方法也有了更深的理解，那就必须要记录一哈哈，以防上了年纪以后又忘记😄。
+数组，一个存储元素的线性集合，元素可以通过索引来任意存取。其常见使用方法如下：
+栈方法（数组也提供了一种让数组的行为类似于其他数据结	
+							  
+						</p> 
+					
 
+					
+						<span class="continue-read">      	
+							<a href="/2018/10/20/数组一些常用方法总结/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
-  
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/10/13/浏览器缓存机制/" itemprop="url">
+	<time datetime="2018-10-13T07:20:11.774Z" itemprop="datePublished">
+  		2018-10-13
+  </time>
+</a>    
 
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/10/13/浏览器缓存机制/" itemprop="url">		
+			浏览器缓存机制		
+		</a>
+	
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+					</span>
+					
+					
+						<p>
+							
+								概述浏览器的缓存机制也就是我们常说的HTTP缓存机制，其机制是根据HTTP报文的缓存标识进行的，HTTP报文分为两种：HTTP请求报文和HTTP响应报文
+HTTP请求（Request）报文报文格式为：请求行 - HTTP头（通用信息头、请求头、实体头）- 请求报文主体（只有 post请求才有请求体）如图：
+HTTP相应（Response）报文报文格式为：状态行 - HTTP头（通用信息头、响应头、	
+							  
+						</p> 
+					
 
-  
-    
+					
+						<span class="continue-read">      	
+							<a href="/2018/10/13/浏览器缓存机制/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		
+			<article class="am-g blog-entry-article">
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
-    </div>
-  </div>
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+					<img src="/img/cart_cover.jpg" class="am-u-sm-12">
+				</div>	
 
+				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+					<span class="theme-annie-post-date">
+						<a href="/2018/08/09/git内部原理及最佳实践/" itemprop="url">
+	<time datetime="2018-08-09T10:10:13.798Z" itemprop="datePublished">
+  		2018-08-09
+  </time>
+</a>    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/11/04/清除浮动/">清除浮动的几种方法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/27/水平垂直居中/">水平垂直居中的几种方法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/20/数组一些常用方法总结/">数组一些常用方法总结</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/13/浏览器缓存机制/">浏览器缓存机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/09/git内部原理及最佳实践/">Git内部原理及“最佳”实践</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+					</span>
+					<span class="theme-annie-post-title">
+						
+	
+		<a href="/2018/08/09/git内部原理及最佳实践/" itemprop="url">		
+			Git内部原理及“最佳”实践		
+		</a>
+	
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+					</span>
+					
+					
+						<p>
+							
+								Git内部原理Git基础
+直接记录快照，而非差异比较  Git和其他版本控制系统的主要差别在于Git对待数据的方法，其它大部分系统以文件变更列表的方式存储信息，这类系统将他们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异。而Git 把数据看作是对小型文件系统的一组快照。 每次提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如	
+							  
+						</p> 
+					
+
+					
+						<span class="continue-read">      	
+							<a href="/2018/08/09/git内部原理及最佳实践/" class="pull-right">
+								展开全文
+							</a>		
+						</span>
+					         		
+				</div>
+		
+			</article>
+		     
+
+		
+	<ul class="am-pagination">
+		
+		
+		
+			<li class="am-pagination-next">
+				<a href="/page/2/"> 下一页 &raquo; </a>
+			</li>
+		
+	</ul>
+    	
+	</div>
+</div>
+<!-- content end -->
+
+	<!--图文风格-->
+
+		</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="blog-text-center">
+		<div class="theme-annie-social">
+				
+				
+					<a href="http://github.com/" title="Github" target="_blank"><i class="fa fa-github"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+				
+				
+					<a href="http://github.com/" title="Email" target="_blank"><i class="fa fa-envelope-o"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="QQ" target="_blank"><i class="fa fa-qq"></i>&nbsp;</a>
+					
+				
+					<a href="http://github.com/" title="Twitter" target="_blank"><i class="fa fa-twitter"></i>&nbsp;</a>
+						
+				
+		</div>
+	</div>
+
+	<div  class="blog-text-center">
+		<div class="theme-annie-copyright">
+			
+				&copy; 2017 - 2018, content by John Doe. All Rights Reserved.			       	
+			
+		</div>
+	</div>
+
+	<div class="blog-text-center">
+		<div class="theme-annie-copyright">
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.		
+		</div>
+	</div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
+		<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+	window.jQuery || document.write('<script src="/js/jquery-2.1.1.min.js"><\/script>')
+</script>
+
+<style>
+	.motto {
+		color: #000000;
+		font-size: 20px;
+		margin: 100px 25% 0;
+		width: 50%;
+		line-height: 1.4;
+		font-family:"KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+		text-align: center;
+	}
+	@media(max-width: 890px) {
+		.motto {	
+			margin: 100px 10% 0;
+			width: 80%;
+		}
+	}
+	@media(max-width: 890px) {
+		.motto {
+			margin: 100px 5% 0;
+			width: 90%;
+		}
+	}
+</style>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html(getMingYanContent());
+	</script>	
 
 
-<script src="/js/script.js"></script>
 
 
 
-  </div>
-</body>
-</html>
+
+
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript">
+	//generate a random img that pre_name 'from 0 to 110'
+	var random_bg = Math.floor(Math.random() * 109 + 1);
+
+	//var bg = 'url(/img/random/' + random_bg + '.jpg)';		
+	var bg = 'url(https://XXX-youname-XXX.github.io/Random-img/' + random_bg + '.jpg)';
+
+	$("#header-bg-2").css("background-image", bg);
+</script>
+		
+		<!--back to top-->
+        <style type="text/css">
+	#totop {
+		background: white;
+		border-radius: 50%;
+		position: fixed;
+		right: 5.4%;
+		bottom: 80px;
+		cursor: pointer;
+	}
+	
+	#totop a {
+		color: #474747;
+		background-color: transparent;
+		padding: 10px;
+		text-decoration: none;
+	}
+	
+	@media(max-width:512px) {
+		#totop {
+			display: none;
+			visibility: hidden;
+		}
+	}
+</style>
+
+
+	<div id="totop">
+  		<a href="javascript:;" class="fa fa-arrow-up"></a>
+	</div>
+
+	</body>
+	</html>
+
