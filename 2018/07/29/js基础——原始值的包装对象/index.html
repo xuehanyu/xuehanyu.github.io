@@ -38,7 +38,7 @@
 
 <!-- header -->
 
-	<header id="header-bg-1" style="background-image: url( /img/1.jpg );">	
+	<header id="header-bg-1" style="background-image: url( /img/2.jpg );">	
 
 	
 		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
@@ -61,7 +61,7 @@
 	
 	<!-- others: such as change-bg, time... -->
 	<p class="page-name-other">
-		12/21/2018 
+		12/22/2018 
 		<style type="text/css">
 	header:after {
 		content: '';
@@ -139,6 +139,8 @@
     		
     		
         	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
 		</ul>
 	</nav>
 </div>
@@ -188,12 +190,19 @@
 				<div class="content" id="post-content">
 					
 						<p>布尔值、数字和字符串这三种原始值都有对应的构造函数：Boolean、Number、string。</p>
-<h3 id="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"><a href="#作为构造函数，他们创建的对象和它们包装的原始值有很大的不同" class="headerlink" title="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"></a>作为构造函数，他们创建的对象和它们包装的原始值有很大的不同</h3><p>eg: 类型不同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>)   <span class="comment">//  object  </span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'abc'</span>) === <span class="string">'abc'</span>   <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="作为函数，它们会将值转换为对应的原始值"><a href="#作为函数，它们会将值转换为对应的原始值" class="headerlink" title="作为函数，它们会将值转换为对应的原始值"></a>作为函数，它们会将值转换为对应的原始值</h3><p>eg<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Number</span><span class="params">(<span class="number">1</span>)</span></span>      <span class="comment">//  1</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="原始值的包装与去包装"><a href="#原始值的包装与去包装" class="headerlink" title="原始值的包装与去包装"></a>原始值的包装与去包装</h2><p>在日常的开发实践中，我们经常对原始值 如字符串 、数值进行“.”的操作，调用其方法或属性，在调用的背后就发生了包装与去包装的过程。</p>
-<h3 id="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："><a href="#通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：" class="headerlink" title="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："></a>通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：</h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Boolean</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="type">String</span>(<span class="string">'123'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="type">Number</span>(<span class="number">134</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"><a href="#通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。" class="headerlink" title="通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"></a>通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。</h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="type">Boolean</span>(<span class="literal">true</span>).valueOf()        <span class="comment">//true</span></span><br><span class="line"><span class="keyword">new</span> <span class="type">String</span>(<span class="string">'123'</span>).valueOf()       <span class="comment">// '123'</span></span><br><span class="line"><span class="keyword">new</span> <span class="type">Number</span>(<span class="number">134</span>).valueOf()       <span class="comment">// 134</span></span><br></pre></td></tr></table></figure>
-<p>注意：将包装对象转换为原始值时只能正确地提取数字和字符串，而布尔值不能。<br><code>Boolean(new Boolean(true))</code>    //  true</p>
+<h3 id="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"><a href="#作为构造函数，他们创建的对象和它们包装的原始值有很大的不同" class="headerlink" title="作为构造函数，他们创建的对象和它们包装的原始值有很大的不同"></a>作为构造函数，他们创建的对象和它们包装的原始值有很大的不同</h3><p>eg: 类型不同</p>
+<pre><code>  typeof new String(&#39;abc&#39;)   //  object  
+  new String(&#39;abc&#39;) === &#39;abc&#39;   // false
+</code></pre><h3 id="作为函数，它们会将值转换为对应的原始值"><a href="#作为函数，它们会将值转换为对应的原始值" class="headerlink" title="作为函数，它们会将值转换为对应的原始值"></a>作为函数，它们会将值转换为对应的原始值</h3><p>eg</p>
+<pre><code>  Number(1)      //  1   
+</code></pre><h2 id="原始值的包装与去包装"><a href="#原始值的包装与去包装" class="headerlink" title="原始值的包装与去包装"></a>原始值的包装与去包装</h2><p>在日常的开发实践中，我们经常对原始值 如字符串 、数值进行“.”的操作，调用其方法或属性，在调用的背后就发生了包装与去包装的过程。</p>
+<h3 id="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："><a href="#通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：" class="headerlink" title="通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性："></a>通过调用包装构造函数对原始值进行包装，包装成临时对象可以调用方法或者属性：</h3><pre><code>  new Boolean(true)
+  new String(&#39;123&#39;)
+  new Number(134)
+</code></pre><h3 id="通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"><a href="#通过调用valueOf-来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。" class="headerlink" title="通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。"></a>通过调用valueOf() 来对原始值进行去包装，所有的对象都有这个方法，转换为原始值。</h3><pre><code>  new Boolean(true).valueOf()        //true
+  new String(&#39;123&#39;).valueOf()       // &#39;123&#39;
+  new Number(134).valueOf()       // 134
+</code></pre><p>注意：将包装对象转换为原始值时只能正确地提取数字和字符串，而布尔值不能。<br><code>Boolean(new Boolean(true))</code>    //  true</p>
 
 					
 				</div>
@@ -389,7 +398,344 @@
 
 
 
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
 
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
 
 
 

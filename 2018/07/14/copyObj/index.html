@@ -38,7 +38,7 @@
 
 <!-- header -->
 
-	<header id="header-bg-1" style="background-image: url( /img/1.jpg );">	
+	<header id="header-bg-1" style="background-image: url( /img/2.jpg );">	
 
 	
 		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
@@ -61,7 +61,7 @@
 	
 	<!-- others: such as change-bg, time... -->
 	<p class="page-name-other">
-		12/21/2018 
+		12/22/2018 
 		<style type="text/css">
 	header:after {
 		content: '';
@@ -139,6 +139,8 @@
     		
     		
         	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
 		</ul>
 	</nav>
 </div>
@@ -188,17 +190,95 @@
 				<div class="content" id="post-content">
 					
 						<h1 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h1><p>JS中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>堆内存用于存放由new创建的对象，栈内存存放一些基本类型的变量和对象的引用变量。<br>浅拷贝：仅仅复制对象的引用，而不是对象本身；<br>深拷贝：把复制的对象所引用的全部对象都复制一遍</p>
-<h3 id="对于简单变量，内存小，直接复制而不会发生引用"><a href="#对于简单变量，内存小，直接复制而不会发生引用" class="headerlink" title="对于简单变量，内存小，直接复制而不会发生引用"></a>对于简单变量，内存小，直接复制而不会发生引用</h3><p>eg：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">123</span></span><br><span class="line">Var <span class="selector-tag">b</span> = a</span><br><span class="line"><span class="selector-tag">a</span> = <span class="number">123456</span></span><br><span class="line">Console.log(a).  <span class="comment">// 123456</span></span><br><span class="line">Console.log(b).  <span class="comment">// 123</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="引用只发生在对象身上，如数组、对象"><a href="#引用只发生在对象身上，如数组、对象" class="headerlink" title="引用只发生在对象身上，如数组、对象"></a>引用只发生在对象身上，如数组、对象</h3><p>（一）数组<br>浅拷贝eg：<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">Var arr2 = arr1 </span><br><span class="line">arr1.<span class="keyword">push</span>(<span class="number">4</span>)</span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4]</span></span><br><span class="line">arr2.<span class="keyword">push</span>(<span class="number">6</span>) </span><br><span class="line">Console.<span class="built_in">log</span>(arr1).  <span class="comment">// [1,2,3,4,6]</span></span><br><span class="line">Console.<span class="built_in">log</span>(arr2) <span class="comment">//[1,2,3,4,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的方法:<br>eg1:    Array.from<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Var arr3 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]</span><br><span class="line">var arr4 = Array.from(arr3)</span><br><span class="line">arr3.push(<span class="number">9</span>)</span><br><span class="line">Console.log(arr3).  <span class="comment">// [1,3,5,7,9]</span></span><br><span class="line">Console.log(arr4) <span class="comment">//[1,3,5,7]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg2: …运算符<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr5 = [<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>]</span><br><span class="line">Var arr6 = […arr5]</span><br><span class="line">arr5.push(<span class="number">10</span>)</span><br><span class="line">Console.log(arr5).    <span class="comment">// [2,4,6,8,10]</span></span><br><span class="line">Console.log(arr6).     <span class="comment">// [2,4,6,8]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg3 : Array.map()<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr7 = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">Var arr8 = arr7.map(item =&gt; &#123; return item &#125;)</span><br><span class="line">arr7.push(<span class="number">8</span>)</span><br><span class="line">Console.log(arr7).  <span class="comment">// [2,3,5,6,8]</span></span><br><span class="line">Console.log(arr8).  <span class="comment">// [2,3,5,6]</span></span><br></pre></td></tr></table></figure></p>
-<p>eg4: 通过循环来控制<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr9 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">var arr10 = []</span><br><span class="line">for(var I=<span class="number">0</span>;i&lt;arr9.length;i++)&#123; arr10[i] = arr9[i] &#125;</span><br><span class="line">arr9.push(<span class="number">6</span>)</span><br><span class="line">Console.log(arr9).     <span class="comment">// [1,2,3,4,5,6]</span></span><br><span class="line">Console.log(arr10).    <span class="comment">//. [1,2,3,4]</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h3 id="浅拷贝的实现："><a href="#浅拷贝的实现：" class="headerlink" title="浅拷贝的实现："></a>浅拷贝的实现：</h3><p>eg1: 直接赋值<br>eg2: Object.assign({}, target)<br>eg3: for in循环<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleClone</span><span class="params">(initalObj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        obj[i] = initalObj[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>深拷贝的实现：<br>eg1:JSON.parse<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        obj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(initalObj));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg2: 递归思想<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function deepClone(obj1,obj2)&#123;</span><br><span class="line">  var obj2=obj2||&#123;&#125;; <span class="comment">//最初的时候给它一个初始值=它自己或者是一个json</span></span><br><span class="line">  <span class="keyword">for</span>(var <span class="built_in">name</span> <span class="built_in">in</span> obj1)&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">typeof</span> obj1[<span class="built_in">name</span>] === <span class="string">"object"</span>)&#123; <span class="comment">//先判断一下obj[name]是不是一个对象</span></span><br><span class="line">          obj2[<span class="built_in">name</span>]= (obj1[<span class="built_in">name</span>].constructor===Array)?[]:&#123;&#125;; <span class="comment">//我们让要复制的对象的name项=数组或者是json</span></span><br><span class="line">          deepClone(obj1[<span class="built_in">name</span>],obj2[<span class="built_in">name</span>]); <span class="comment">//然后来无限调用函数自己 递归思想</span></span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          obj2[<span class="built_in">name</span>]=obj1[<span class="built_in">name</span>];  <span class="comment">//如果不是对象，直接等于即可，不会发生引用。</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj2; <span class="comment">//然后在把复制好的对象给return出去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>eg3: Object.create()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj, finalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = finalObj || &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = initalObj[i];</span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况</span></span><br><span class="line">        <span class="keyword">if</span>(prop === obj) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> prop === <span class="string">'object'</span>) &#123;</span><br><span class="line">            obj[i] = (prop.constructor === <span class="built_in">Array</span>) ? [] : <span class="built_in">Object</span>.create(prop);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[i] = prop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对于简单变量，内存小，直接复制而不会发生引用"><a href="#对于简单变量，内存小，直接复制而不会发生引用" class="headerlink" title="对于简单变量，内存小，直接复制而不会发生引用"></a>对于简单变量，内存小，直接复制而不会发生引用</h3><p>eg：</p>
+<pre><code>var a = 123
+Var b = a
+a = 123456
+Console.log(a).  // 123456
+Console.log(b).  // 123
+</code></pre><h3 id="引用只发生在对象身上，如数组、对象"><a href="#引用只发生在对象身上，如数组、对象" class="headerlink" title="引用只发生在对象身上，如数组、对象"></a>引用只发生在对象身上，如数组、对象</h3><p>（一）数组<br>浅拷贝eg：</p>
+<pre><code>var arr1 = [1,2,3]
+Var arr2 = arr1 
+arr1.push(4)
+Console.log(arr1).  // [1,2,3,4]
+Console.log(arr2) //[1,2,3,4]
+arr2.push(6) 
+Console.log(arr1).  // [1,2,3,4,6]
+Console.log(arr2) //[1,2,3,4,6]
+</code></pre><p>深拷贝的方法:<br>eg1:    Array.from</p>
+<pre><code>Var arr3 = [1,3,5,7]
+var arr4 = Array.from(arr3)
+arr3.push(9)
+Console.log(arr3).  // [1,3,5,7,9]
+Console.log(arr4) //[1,3,5,7]
+</code></pre><p>eg2: …运算符</p>
+<pre><code>var arr5 = [2,4,6,8]
+Var arr6 = […arr5]
+arr5.push(10)
+Console.log(arr5).    // [2,4,6,8,10]
+Console.log(arr6).     // [2,4,6,8]
+</code></pre><p>eg3 : Array.map()</p>
+<pre><code>var arr7 = [2,3,5,6]
+Var arr8 = arr7.map(item =&gt; { return item })
+arr7.push(8)
+Console.log(arr7).  // [2,3,5,6,8]
+Console.log(arr8).  // [2,3,5,6]
+</code></pre><p>eg4: 通过循环来控制</p>
+<pre><code>var arr9 = [1,2,3,4,5]
+var arr10 = []
+for(var I=0;i&lt;arr9.length;i++){ arr10[i] = arr9[i] }
+arr9.push(6)
+Console.log(arr9).     // [1,2,3,4,5,6]
+Console.log(arr10).    //. [1,2,3,4]
+</code></pre><h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h3 id="浅拷贝的实现："><a href="#浅拷贝的实现：" class="headerlink" title="浅拷贝的实现："></a>浅拷贝的实现：</h3><p>eg1: 直接赋值<br>eg2: Object.assign({}, target)<br>eg3: for in循环</p>
+<pre><code>function simpleClone(initalObj) {
+    var obj = {};
+    for ( var i in initalObj) {
+        obj[i] = initalObj[i];
+    }
+    return obj;
+}
+</code></pre><p>深拷贝的实现：<br>eg1:JSON.parse</p>
+<pre><code>function deepClone(initalObj) {
+    var obj = {};
+    try {
+        obj = JSON.parse(JSON.stringify(initalObj));
+    }
+    return obj;
+}
+</code></pre><p>eg2: 递归思想</p>
+<pre><code>function deepClone(obj1,obj2){
+  var obj2=obj2||{}; //最初的时候给它一个初始值=它自己或者是一个json
+  for(var name in obj1){
+      if(typeof obj1[name] === &quot;object&quot;){ //先判断一下obj[name]是不是一个对象
+          obj2[name]= (obj1[name].constructor===Array)?[]:{}; //我们让要复制的对象的name项=数组或者是json
+          deepClone(obj1[name],obj2[name]); //然后来无限调用函数自己 递归思想
+      }else{
+          obj2[name]=obj1[name];  //如果不是对象，直接等于即可，不会发生引用。
+      }
+  }
+  return obj2; //然后在把复制好的对象给return出去
+}
+</code></pre><p>eg3: Object.create()</p>
+<pre><code>function deepClone(initalObj, finalObj) {
+    var obj = finalObj || {};
+    for (var i in initalObj) {
+        var prop = initalObj[i];
 
+        // 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况
+        if(prop === obj) {
+            continue;
+        }
+
+        if (typeof prop === &#39;object&#39;) {
+            obj[i] = (prop.constructor === Array) ? [] : Object.create(prop);
+        } else {
+            obj[i] = prop;
+        }
+    }
+    return obj;
+}
+</code></pre>
 					
 				</div>
 			</div>
@@ -387,7 +467,344 @@
 
 
 
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
 
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
 
 
 

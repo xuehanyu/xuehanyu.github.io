@@ -38,7 +38,7 @@
 
 <!-- header -->
 
-	<header id="header-bg-1" style="background-image: url( /img/1.jpg );">	
+	<header id="header-bg-1" style="background-image: url( /img/2.jpg );">	
 
 	
 		<div id="cd-logo"><a href="/"><img src="/img/logo.png" alt="Logo"></a></div>
@@ -61,7 +61,7 @@
 	
 	<!-- others: such as change-bg, time... -->
 	<p class="page-name-other">
-		12/21/2018 
+		12/22/2018 
 		<style type="text/css">
 	header:after {
 		content: '';
@@ -139,6 +139,8 @@
     		
     		
         	
+            	<li class="fa fa-/search"><a href="javascript:;" class="popup-trigger" title="Search">搜索</a></li>
+        	
 		</ul>
 	</nav>
 </div>
@@ -194,22 +196,90 @@
 <li>null</li>
 <li>undefined</li>
 </ul>
-<h3 id="复杂数据类型-Object"><a href="#复杂数据类型-Object" class="headerlink" title="复杂数据类型-Object"></a>复杂数据类型-Object</h3><h2 id="下面是几个基础语法的例子"><a href="#下面是几个基础语法的例子" class="headerlink" title="下面是几个基础语法的例子"></a>下面是几个基础语法的例子</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> x     <span class="comment">//  声明一个变量x </span></span><br><span class="line">x = <span class="number">3</span> + z   <span class="comment">//  给变量x赋值</span></span><br><span class="line"><span class="function"><span class="title">foo</span><span class="params">(a,b)</span></span>   <span class="comment">//  函数foo调用并传入形参a,b</span></span><br><span class="line">obj.baz(<span class="number">3</span>)   <span class="comment">//  对象的方法调用</span></span><br><span class="line"><span class="comment">// 条件语句</span></span><br><span class="line"><span class="keyword">if</span>（x===<span class="number">2</span>）&#123;  <span class="comment">// 判断x与2是否相等</span></span><br><span class="line">  x=<span class="number">234</span>  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  函数生命 , 变量为a,b</span></span><br><span class="line"><span class="function"><span class="title">function</span><span class="params">(a,b)</span></span>&#123;</span><br><span class="line">  return a+b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="表达式与语句"><a href="#表达式与语句" class="headerlink" title="表达式与语句"></a>表达式与语句</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>表达式将会产生一个值，它可以出现在任何需要值的地方，如<br>x + 10<br>foo（2，4）</p>
+<h3 id="复杂数据类型-Object"><a href="#复杂数据类型-Object" class="headerlink" title="复杂数据类型-Object"></a>复杂数据类型-Object</h3><h2 id="下面是几个基础语法的例子"><a href="#下面是几个基础语法的例子" class="headerlink" title="下面是几个基础语法的例子"></a>下面是几个基础语法的例子</h2><pre><code>var x     //  声明一个变量x 
+x = 3 + z   //  给变量x赋值
+foo(a,b)   //  函数foo调用并传入形参a,b
+obj.baz(3)   //  对象的方法调用
+// 条件语句
+if（x===2）{  // 判断x与2是否相等
+  x=234  
+}
+//  函数生命 , 变量为a,b
+function(a,b){
+  return a+b
+}
+</code></pre><h1 id="表达式与语句"><a href="#表达式与语句" class="headerlink" title="表达式与语句"></a>表达式与语句</h1><h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><p>表达式将会产生一个值，它可以出现在任何需要值的地方，如<br>x + 10<br>foo（2，4）</p>
 <h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句表示一种行为，如if语句、循环语句，一个程序基本上就是一个语句的序列。</p>
 <p><strong> 注：凡是js期望语句的地方都可以写表达式，这样的语句叫做表达式语句。反之则不然，不能在需要表达式的地方适用语句，如判断语句不能成为函数的参数 </strong></p>
-<h3 id="条件语句与条件表达式（某些情况下可以互通）"><a href="#条件语句与条件表达式（某些情况下可以互通）" class="headerlink" title="条件语句与条件表达式（某些情况下可以互通）"></a>条件语句与条件表达式（某些情况下可以互通）</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  使用条件语句</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">score</span>&gt;<span class="number">60</span>)&#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'及格'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">str</span> = <span class="string">'不及格'</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  如用条件表达式如下 （条件运算符或三元表达式）</span></span><br><span class="line">  <span class="built_in">str</span> = <span class="built_in">score</span> &gt; <span class="number">60</span> ? <span class="string">'及格'</span> : <span class="string">'不及格'</span></span><br></pre></td></tr></table></figure>
-<h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>ES5 提供了严格模式，在严格模式中，JavaScript代码会更加简洁，会有更少不安全的特性，更多的警告和更加合理的代码。普通模式（非严格模式），有时也被成为“宽松模式”。</p>
+<h3 id="条件语句与条件表达式（某些情况下可以互通）"><a href="#条件语句与条件表达式（某些情况下可以互通）" class="headerlink" title="条件语句与条件表达式（某些情况下可以互通）"></a>条件语句与条件表达式（某些情况下可以互通）</h3><pre><code>//  使用条件语句
+  if(score&gt;60){
+    str = &#39;及格&#39;
+  } else {
+    str = &#39;不及格&#39;
+  }
+//  如用条件表达式如下 （条件运算符或三元表达式）
+  str = score &gt; 60 ? &#39;及格&#39; : &#39;不及格&#39;
+</code></pre><h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><p>ES5 提供了严格模式，在严格模式中，JavaScript代码会更加简洁，会有更少不安全的特性，更多的警告和更加合理的代码。普通模式（非严格模式），有时也被成为“宽松模式”。</p>
 <h2 id="启用严格模式"><a href="#启用严格模式" class="headerlink" title="启用严格模式"></a>启用严格模式</h2><p>可以在JavaScript文件或者script标签中的第一行加入以下代码来启动严格模式<br><code>&#39;use strict&#39;</code><br>或者可以在函数作用域中启用严格模式<br><code>function foo(){
     &#39;use strict&#39;
     ...
   }</code></p>
-<h3 id="严格模式中变量必须背声明"><a href="#严格模式中变量必须背声明" class="headerlink" title="严格模式中变量必须背声明"></a>严格模式中变量必须背声明</h3><p>在严格模式中，所有变量必须被显示声明，在宽松模式中，未显示声明的变量将会创建一个全局变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 宽松模式</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    x = <span class="number">111</span></span><br><span class="line">  &#125;</span><br><span class="line">  foo()   <span class="comment">//  创造了一个全局变量x</span></span><br><span class="line">  <span class="built_in">console</span>.log(x)   <span class="comment">//  111;</span></span><br><span class="line"><span class="comment">//  严格模式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta"> 'use strict'</span></span><br><span class="line">  x = <span class="number">111</span></span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//  抛出异常， ReferenceError: x is not defined</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="函数必须在作用域的顶部声明"><a href="#函数必须在作用域的顶部声明" class="headerlink" title="函数必须在作用域的顶部声明"></a>函数必须在作用域的顶部声明</h3><p>在严格模式中，所有的函数必须在顶级作用域声明，这意味着你不能在一个块内声明函数，如果这样做，将会抛出描述性错误SyntaxError；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// SyntaxError；</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">//  OK</span></span><br><span class="line">    <span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="无方法的函数中-this的值为undefined"><a href="#无方法的函数中-this的值为undefined" class="headerlink" title="无方法的函数中 this的值为undefined"></a>无方法的函数中 this的值为undefined</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在宽松模式中</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)   <span class="comment">// true</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//  在严格模式中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="literal">undefined</span>)   <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="在严格模式中，设置或删除不可改变的属性会抛出异常"><a href="#在严格模式中，设置或删除不可改变的属性会抛出异常" class="headerlink" title="在严格模式中，设置或删除不可改变的属性会抛出异常"></a>在严格模式中，设置或删除不可改变的属性会抛出异常</h3><p>严格模式中，对属性的非法操作会抛出异常。如，对只读属性的设定操作会抛出一场，同样不可以删除不可配置的属性，如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"hello"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  静默失败</span></span><br><span class="line">  <span class="built_in">console</span>.log(str.length)  <span class="comment">//  5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  str.length = <span class="number">8</span>  <span class="comment">//  抛出异常 TypeError: Cannot assign to read only property 'length' of string 'hello'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="在严格模式中，不合格标识符不能删除"><a href="#在严格模式中，不合格标识符不能删除" class="headerlink" title="在严格模式中，不合格标识符不能删除"></a>在严格模式中，不合格标识符不能删除</h3><p>在宽松模式中，可以用下面的方式删除全局变量foo<br>delete foo<br>在严格模式中，想要删除不合格标识符时将会抛出异常，但是可以通过以下方式进行删除全局变量<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delete window<span class="selector-class">.foo</span> <span class="comment">//  浏览器</span></span><br><span class="line">delete global<span class="selector-class">.foo</span>  <span class="comment">//  Node.js</span></span><br><span class="line">delete this<span class="selector-class">.foo</span>  <span class="comment">//  全局作用域</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="严格模式中变量必须背声明"><a href="#严格模式中变量必须背声明" class="headerlink" title="严格模式中变量必须背声明"></a>严格模式中变量必须背声明</h3><p>在严格模式中，所有变量必须被显示声明，在宽松模式中，未显示声明的变量将会创建一个全局变量</p>
+<pre><code>// 宽松模式
+  function foo(){
+    x = 111
+  }
+  foo()   //  创造了一个全局变量x
+  console.log(x)   //  111;
+//  严格模式
+function foo(){
+ &#39;use strict&#39;
+  x = 111
+}
+foo()   //  抛出异常， ReferenceError: x is not defined
+</code></pre><h3 id="函数必须在作用域的顶部声明"><a href="#函数必须在作用域的顶部声明" class="headerlink" title="函数必须在作用域的顶部声明"></a>函数必须在作用域的顶部声明</h3><p>在严格模式中，所有的函数必须在顶级作用域声明，这意味着你不能在一个块内声明函数，如果这样做，将会抛出描述性错误SyntaxError；</p>
+<pre><code>  function foo(){
+    &#39;use strict&#39;
+    {
+      // SyntaxError；
+      function bar(){
+      }
+    }
+  }
 
+  function foo(){
+    &#39;use strict&#39;
+    {
+      //  OK
+      var bar = function (){
+      }
+    }
+  }
+</code></pre><h3 id="无方法的函数中-this的值为undefined"><a href="#无方法的函数中-this的值为undefined" class="headerlink" title="无方法的函数中 this的值为undefined"></a>无方法的函数中 this的值为undefined</h3><pre><code>// 在宽松模式中
+  function foo(){
+    console.log(this===window)   // true
+  }
+//  在严格模式中
+function foo(){
+  &#39;use strict&#39;
+  console.log(this===undefined)   // true
+}
+</code></pre><h3 id="在严格模式中，设置或删除不可改变的属性会抛出异常"><a href="#在严格模式中，设置或删除不可改变的属性会抛出异常" class="headerlink" title="在严格模式中，设置或删除不可改变的属性会抛出异常"></a>在严格模式中，设置或删除不可改变的属性会抛出异常</h3><p>严格模式中，对属性的非法操作会抛出异常。如，对只读属性的设定操作会抛出一场，同样不可以删除不可配置的属性，如：</p>
+<pre><code>var str = &quot;hello&quot;
+function foo() {
+  str.length = 8  //  静默失败
+  console.log(str.length)  //  5
+}
+
+function foo() {
+  &#39;use strict&#39;
+  str.length = 8  //  抛出异常 TypeError: Cannot assign to read only property &#39;length&#39; of string &#39;hello&#39;
+}
+</code></pre><h3 id="在严格模式中，不合格标识符不能删除"><a href="#在严格模式中，不合格标识符不能删除" class="headerlink" title="在严格模式中，不合格标识符不能删除"></a>在严格模式中，不合格标识符不能删除</h3><p>在宽松模式中，可以用下面的方式删除全局变量foo<br>delete foo<br>在严格模式中，想要删除不合格标识符时将会抛出异常，但是可以通过以下方式进行删除全局变量</p>
+<pre><code>delete window.foo //  浏览器
+delete global.foo  //  Node.js
+delete this.foo  //  全局作用域
+</code></pre>
 					
 				</div>
 			</div>
@@ -404,7 +474,344 @@
 
 
 
+	<div class="popup search-popup local-search-popup">
+    <span class="popup-btn-close">
+      ESC
+    </span>
+    <div class="container">
+      <div class="col-md-8 col-md-offset-2">
 
+        <div class="local-search-header clearfix">
+            <span class="search-icon"></span>
+            <div class="local-search-input-wrapper">
+              <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+            </div>
+        </div>
+
+        <div id="local-search-result"></div>
+
+      </div>
+    </div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // get search zip version
+    $.get('/searchVersion.txt?t=' + (+new Date()), function(res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson () {
+      initLoad(['/search.zip'], {
+        loadOptions: {
+          success: function(obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function(e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions:{
+          'json':'application/json'
+        }
+      })
+    }
+
+    // search function;
+    var searchFunc = function(search_id, content_id) {
+      'use strict';
+
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function() {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function(data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title ? data.title.trim() : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content ? data.content.trim().replace(/<[^>]+>/g,"") : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function(keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0, position = [], index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+
+            // show search results
+
+            if (isMatch) {
+              // sort index by position of keyword
+
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+
+              // merge hits into slices
+
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+
+                  // move to next position of hit
+
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {
+                  hits: hits,
+                  start: start,
+                  end: end,
+                  searchTextCount: searchTextCountInSlice
+                };
+              }
+
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if(start < 0){
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if(end > content.length){
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+
+              // sort slices in content by search text's count and hits' count
+
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+
+              // select top N slices in content
+
+              var upperBound = parseInt('2');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+
+              // highlight title and content
+
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+
+              var resultItem = '';
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+              } else {
+                resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+              }
+
+              slicesOfContent.forEach(function (slice) {
+                resultItem +=  "<p class=\"search-result\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+
+              resultItem += "</li>";
+              resultItems.push({
+                item: resultItem,
+                searchTextCount: searchTextCount,
+                hitCount: hitCount,
+                id: resultItems.length
+              });
+            }
+          })
+        };
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /> no result </div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<ul class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</ul>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+
+      // remove loading animation
+      $('body').css('overflow', '');
+
+      proceedsearch();
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        $('.sb-close').click();
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+	<script type="text/javascript" src="/js/love.js"></script>
 
 
 
